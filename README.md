@@ -9,7 +9,15 @@ Source code and official experiment records for the current thesis model: **AXIS
 - `dataset/`: CSV files only. Raw images, DICOM files, YOLO label text files, and dataset archives are excluded.
 - `weights/`: trained model checkpoints, stored separately from dataset files and handled with Git LFS.
 
-**Upload status:** model source code and official experiment records are available. Trained checkpoints and the final dataset CSV are not yet included because the original files are on hpc6 and the SSH connection currently times out. These files must be downloaded and verified before they can be added.
+The repository includes the original AXIS E50 checkpoints for seeds 42, 43, and 44, plus the final `dataset/All_data.csv`. All four files were downloaded from hpc6 and verified against the SHA256 values in the original experiment records. File checksums are listed in [SHA256SUMS](SHA256SUMS).
+
+| Checkpoint | Role |
+| --- | --- |
+| `weights/AXIS_seed42_E50.pt` | Predeclared representative model |
+| `weights/AXIS_seed43_E50.pt` | Second training seed |
+| `weights/AXIS_seed44_E50.pt` | Third training seed |
+
+Each checkpoint is 238,430,301 bytes. These are original research checkpoint dictionaries containing a full `model_state` and experiment metadata, rather than standard Ultralytics serialized model objects. Loading requires reconstructing the compatible unfused detector, installing the Q-head with `install_v6a2_head`, and loading `model_state` with strict matching. The archived evaluator in `full_eval.py` constructs that detector from the original A0-R checkpoint.
 
 ## Model
 
@@ -45,16 +53,24 @@ The Ultralytics version is fixed to 8.4.83. Install a PyTorch build appropriate 
 
 The original research code and frozen file hashes are preserved. `full50.py` and `run_pipeline.sh` are the original hpc6 experiment pipeline and depend on server-specific absolute paths, A0-R/M3 checkpoints, data manifests, label caches, and GPU configuration. Cloning this repository alone is insufficient to rerun training. The launcher also manages a server GPU holder and is intended for the original environment. Reproduction elsewhere requires preparing the inputs listed in the protocols and adapting the execution paths explicitly.
 
-To retrieve checkpoints after they are uploaded:
+To retrieve the checkpoints:
 
 ```bash
 git lfs install
 git lfs pull
 ```
 
+To verify the downloaded assets on a system with `sha256sum`:
+
+```bash
+sha256sum -c SHA256SUMS
+```
+
 ## Dataset metadata
 
-The original final data index is `/hpc/zhou228/x-ray/Dataset/Simplified_dataset/All_data.csv`. Its previously verified SHA256 is `a44d2e86b847da005a6b4ede1135606fa79f2aa0d08bd0652a377e2713c75b50`. The final dataset contains 18,438 images and 27,749 positive bounding boxes. Uploading CSV metadata does not include the corresponding images.
+The original final data index is `/hpc/zhou228/x-ray/Dataset/Simplified_dataset/All_data.csv`. Its SHA256 is `a44d2e86b847da005a6b4ede1135606fa79f2aa0d08bd0652a377e2713c75b50`. The included CSV contains 31,124 rows covering 18,438 unique images: 27,749 positive bounding-box rows and 3,375 `no_finding` rows. CSV metadata does not include the corresponding images.
+
+CSV columns: `id`, `type_of_abnormalities`, `x_min`, `y_min`, `x_max`, `y_max`, `source`, `width`, and `height`.
 
 ## Upstream dependency
 
