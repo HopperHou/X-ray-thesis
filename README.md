@@ -1,21 +1,21 @@
 # AXIS: Chest X-ray Object Detection
 
-当前硕士论文模型的源码与正式实验记录。当前版本为 **AXIS E50 / O2O**，基于 YOLO26，使用三种子（42、43、44）Plan B 配对训练；seed42 E50 是预先指定的代表模型。
+Source code and official experiment records for the current thesis model: **AXIS E50 / O2O**, built on YOLO26. The final Plan B experiment used paired training with three seeds (42, 43, and 44). Seed 42 at epoch 50 is the predeclared representative checkpoint.
 
-## 内容
+## Repository contents
 
-- `implementation/axis_full50/`：模型、质量头、损失函数、训练、评价及统计源码，包含原始冻结协议和 SHA256 清单。
-- `refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/`：正式 E50 报告、逐类结果、收敛 CSV、评价矩阵及配对/冻结检查记录。
-- `dataset/`：仅允许上传 `.csv` 文件；不上传原始影像、DICOM、YOLO 标签文本或数据集压缩包。
-- `weights/`：供训练后的模型权重使用，独立于数据集目录。
+- `implementation/axis_full50/`: model, quality head, losses, training, evaluation, and statistical analysis code, including the original frozen protocols and SHA256 manifests.
+- `refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/`: official E50 reports, per-class results, convergence CSV, evaluation matrices, and pairing and freeze checks.
+- `dataset/`: CSV files only. Raw images, DICOM files, YOLO label text files, and dataset archives are excluded.
+- `weights/`: trained model checkpoints, stored separately from dataset files and handled with Git LFS.
 
-**当前上传状态：本地没有训练权重或最终数据集 CSV，因此本次源码上传尚不包含这些文件。** 原始文件在 hpc6；连接服务器并下载、核验后才能补充。
+**Upload status:** model source code and official experiment records are available. Trained checkpoints and the final dataset CSV are not yet included because the original files are on hpc6 and the SSH connection currently times out. These files must be downloaded and verified before they can be added.
 
-## 模型
+## Model
 
-AXIS 只训练 O2O 框回归塔和 Q-head；backbone、neck、O2M 分支与 O2O 分类塔冻结。推理使用原生 O2O Top300，无 NMS，质量分数校正保持 identity。
+AXIS trains the O2O box regression towers and Q-heads. The backbone, neck, O2M branch, and O2O classification towers remain frozen. Inference uses native O2O Top300 without NMS; the quality score correction is fixed to the identity mapping.
 
-几何项采用固定的 `axis_center_v1`：
+The fixed `axis_center_v1` geometry objective is:
 
 ```text
 L_AXIS = B * L_box_native + L_Q + B * lambda_geo * L_geo_axis
@@ -25,22 +25,37 @@ L_geo_axis = mean_fg[(2 - 2^IoU)
 lambda_geo = 0.6070424318313599
 ```
 
-分类顺序：Pneumonia、Pneumothorax、Cardiomegaly、Aortic enlargement、Pleural thickening、Pulmonary fibrosis。
+Here, `B` is the actual batch size and `mean_fg` averages over native O2O assigned foreground locations. `dx` and `dy` are predicted-to-target box center offsets in pixels.
 
-## 正式结果
+Class order: Pneumonia, Pneumothorax, Cardiomegaly, Aortic enlargement, Pleural thickening, and Pulmonary fibrosis.
 
-在固定的 1,660 张 development 图像上，AXIS 三种子均值 mAP50–95 为 **27.567866%**，A0-R 为 **27.355653%**；差值为 **+0.212213 个百分点**。AXIS 相对 B2 的均值差为 −0.000028 个百分点，尚不支持 axis 项具有独立 mAP 增益。完整数值与条件患者 bootstrap 区间见正式 `REPORT.md`。
+## Official results
 
-这些结果来自已反复使用的 development 数据，不能替代独立外部验证。内部 test 未用于本轮评价。后续废弃的 O2M+NMS 评价和未采用的 overlap 候选不属于当前模型版本。
+On the fixed development set of 1,660 images, the three-seed mean AXIS mAP50–95 is **27.567866%**, compared with **27.355653%** for A0-R: a difference of **+0.212213 percentage points**. The mean AXIS–B2 difference is −0.000028 percentage points, which does not support an independent mAP gain from the axis term. Full metrics and conditional patient-bootstrap intervals are available in the official [report](refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/REPORT.md).
 
-## 环境与复现范围
+The development data were repeatedly exposed during research. These results do not establish independent external generalization. The internal test set was not used in this evaluation. The discarded O2M+NMS evaluation and the unselected overlap candidate are outside the current model version.
+
+## Environment and reproduction scope
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-本仓库保留原始研究源码，不修改冻结方法或原始文件校验值。`full50.py` 和 `run_pipeline.sh` 是原 hpc6 实验流水线，依赖服务器绝对路径、A0-R/M3 权重、数据清单、标签缓存和 GPU 环境；克隆后不能直接作为通用训练命令运行。启动脚本还包含服务器 GPU holder 管理，仅适用于原环境。完整重跑需先准备协议中列出的输入并规划路径迁移。
+The Ultralytics version is fixed to 8.4.83. Install a PyTorch build appropriate for the target CUDA environment. The other dependencies in `requirements.txt` are not a complete environment lockfile.
 
-最终数据索引原路径为 `/hpc/zhou228/x-ray/Dataset/Simplified_dataset/All_data.csv`，历史核验 SHA256 为 `a44d2e86b847da005a6b4ede1135606fa79f2aa0d08bd0652a377e2713c75b50`。数据集含 18,438 张图像的索引与 27,749 个阳性框；CSV 上传不包含相应影像。
+The original research code and frozen file hashes are preserved. `full50.py` and `run_pipeline.sh` are the original hpc6 experiment pipeline and depend on server-specific absolute paths, A0-R/M3 checkpoints, data manifests, label caches, and GPU configuration. Cloning this repository alone is insufficient to rerun training. The launcher also manages a server GPU holder and is intended for the original environment. Reproduction elsewhere requires preparing the inputs listed in the protocols and adapting the execution paths explicitly.
 
-源码依赖 Ultralytics；其使用与许可条件遵循上游项目。
+To retrieve checkpoints after they are uploaded:
+
+```bash
+git lfs install
+git lfs pull
+```
+
+## Dataset metadata
+
+The original final data index is `/hpc/zhou228/x-ray/Dataset/Simplified_dataset/All_data.csv`. Its previously verified SHA256 is `a44d2e86b847da005a6b4ede1135606fa79f2aa0d08bd0652a377e2713c75b50`. The final dataset contains 18,438 images and 27,749 positive bounding boxes. Uploading CSV metadata does not include the corresponding images.
+
+## Upstream dependency
+
+This code depends on Ultralytics. Its use is subject to the upstream project's license terms.
