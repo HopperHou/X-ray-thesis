@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "checks": [
+    "VALID_COMPLETE",
+    "six_E50_runs_4150_steps_each",
+    "24900_total_steps_pairing_PASS",
+    "seven_evaluations_1660_images_6x10_finite_AP",
+    "summary_recomputed_from_AP_matrices",
+    "seed_means_sample_SD_and_differences_recomputed",
+    "bootstrap10000_patient990_identity_report_PASS",
+    "holder_RESTORED"
+  ],
+  "limitations": "Checkpoint hashes and bootstrap samples were not recomputed locally; remote pairing/evaluation/bootstrap checks provide those attestations."
+}

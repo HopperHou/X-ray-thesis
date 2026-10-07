@@ -1,0 +1,51 @@
+# Publish only the current AXIS E50 implementation and its official evidence.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/requirements.txt
+!/implementation/
+/implementation/*
+!/implementation/axis_full50/
+!/implementation/axis_full50/**
+/implementation/axis_full50/native_verified_8_4_83/
+!/refine-logs/
+/refine-logs/*
+!/refine-logs/AXIS_FULL50_20260930/
+/refine-logs/AXIS_FULL50_20260930/*
+!/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/
+!/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/**
+
+# Dataset upload policy: CSV files only, including nested folders.
+!/dataset/
+/dataset/**
+!/dataset/**/
+!/dataset/**/*.csv
+
+# Model checkpoints are separate from the dataset.
+!/weights/
+/weights/**
+!/weights/**/
+!/weights/**/*.pt
+!/weights/**/*.pth
+!/weights/**/*.onnx
+!/weights/**/*.safetensors
+
+# Never publish runtime caches, local credentials, or dataset image archives.
+**/__pycache__/
+*.py[cod]
+.env
+.env.*
+*.pem
+*.key
+*.png
+*.jpg
+*.jpeg
+*.dcm
+*.dicom
+*.zip
+*.tar
+*.tar.gz
+*.npz
+*.npy
+*.log

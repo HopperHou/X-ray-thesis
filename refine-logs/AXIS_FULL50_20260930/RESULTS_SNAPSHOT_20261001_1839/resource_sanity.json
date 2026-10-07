@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "batch": 180,
+  "workers": 40,
+  "optimizer_steps": 0,
+  "loss_finite": true,
+  "gradients_finite": true,
+  "peak_allocated_bytes": 45481456128,
+  "peak_reserved_bytes": 84032880640
+}

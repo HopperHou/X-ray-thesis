@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "iou": [
+    0.5,
+    0.75
+  ],
+  "d2": [
+    1.0,
+    2.0
+  ],
+  "original_geo": 1.9519968035597381,
+  "axis_geo": 0.789496803559738,
+  "axis_center_toy": 0.30000001192092896,
+  "dtype_sanity": {
+    "torch.float32": {
+      "center": 0.30000001192092896,
+      "center_dtype": "torch.float32",
+      "gradient_finite": true
+    },
+    "torch.bfloat16": {
+      "center": 0.30000001192092896,
+      "center_dtype": "torch.float32",
+      "gradient_finite": true
+    }
+  },
+  "trainable_parameter_count": 54,
+  "test_data_read": 0
+}

@@ -1,0 +1,7 @@
+{
+  "status": "VALID_COMPLETE",
+  "error": null,
+  "test_data_read": 0,
+  "training_steps_expected": 24900,
+  "checkpoint_rule": "E50_only"
+}

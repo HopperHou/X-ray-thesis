@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "BN": "only_one2one_cv2_updates",
+  "trainable": "one2one_cv2_and_Q",
+  "E0_arm_inference_identity": true,
+  "identity_scorer": true,
+  "verified_method_source_unchanged": true,
+  "actual_batch_factor": "native_once_in_criterion_geo_once_in_caller",
+  "lambda_geo": 0.6070424318313599,
+  "test_data_read": 0
+}

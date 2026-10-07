@@ -1,0 +1,3 @@
+# Frozen execution choices
+
+Plan B selected before training. User explicitly retained batch180/workers40/4150 steps after clarification. Original plan remains unchanged in refine-logs/AXIS_FULL50_20260930. Six runs, E50 primary. No test evaluation this execution. E10/E20/E30/E40 saved for documentation, no extra AP evaluations are scheduled. Convergence reports training losses only. Current existing holder is GPU_computation; obsolete GPU_Occupy does not exist. Restore GPU_computation device0 mem50 after all pipeline GPU work, including on failure. No formula, lambda, optimizer, masks, scorer or inference modification.

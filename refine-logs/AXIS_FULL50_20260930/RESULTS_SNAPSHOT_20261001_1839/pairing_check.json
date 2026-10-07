@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "seeds": {
+    "42": {
+      "status": "PASS",
+      "paired_steps": 4150
+    },
+    "43": {
+      "status": "PASS",
+      "paired_steps": 4150
+    },
+    "44": {
+      "status": "PASS",
+      "paired_steps": 4150
+    }
+  },
+  "total_optimizer_steps": 24900,
+  "same_M3_E0": true,
+  "freeze_verified_all_epochs": true,
+  "test_data_read": 0
+}

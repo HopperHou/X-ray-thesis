@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "models": {
+    "A0-R": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "4509ee498ed7148d3a7701d6bc260541742be548a18412b0df1e25324227107a",
+      "complete_AP_matrix": true
+    },
+    "B2_seed42": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "44c7b83daddd4c56469dc0c15ea664e18973de014302d159e84daecfe2f589df",
+      "complete_AP_matrix": true
+    },
+    "AXIS_seed42": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "cab91c3e12404e4a71c36d753e8660353f86a1f9e04e08bef97c155d082d5c39",
+      "complete_AP_matrix": true
+    },
+    "B2_seed43": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "751043f35834a83d97defe8285557823506368a1f017b5c94ff5808ec53a39b7",
+      "complete_AP_matrix": true
+    },
+    "AXIS_seed43": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "fa84ca49eceba47f27a5bbb27a34d586c35cb3f4a4c04e4a22d59f2b071f3443",
+      "complete_AP_matrix": true
+    },
+    "B2_seed44": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "5cb2c7cbdb045eaed50d548e79fca87bdf84f6fef4e14a9a943e22f50eb4eb39",
+      "complete_AP_matrix": true
+    },
+    "AXIS_seed44": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "24da82fd11a359c37deb1f41a04fb76a6a13a6eb83434b335b6565adc85ba18f",
+      "complete_AP_matrix": true
+    }
+  },
+  "test_data_read": 0
+}

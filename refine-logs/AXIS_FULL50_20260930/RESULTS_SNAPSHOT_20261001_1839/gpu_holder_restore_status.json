@@ -1,0 +1,1 @@
+{"status":"ALREADY_RUNNING","pid":3098429,"command":"/hpc/zhou228/GPU_computation/computation.py device=0 mem=50","physical_gpu":0,"gpu_uuid":"GPU-bdf1c899-1408-3f77-05c1-4584e658333d"}

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "EXECUTION_NOTES.md": "1f55bd20e386b8404955b4e68582899bb072e718ca1f99d6f26fb7b783df03c3",
+    "EXPERIMENT_PLAN.md": "b5eb3bcde59d0200ebbf94199d3d1c32ded43c08b4345f86745460ea17cf11d9",
+    "EXPERIMENT_TRACKER_FROZEN.md": "7a4a10d7c1c72ec747577df82cea41ea0f9522a7ef7c8fd257879e8087121849",
+    "full50.py": "6e386687f22f06d52c733eef35b1b5a9767a7c31dcde56535474b37ece0c255f",
+    "full50_statistics.py": "e745102146670fc2f4ffbf06a81a9ba961088aa21bdacd03c83b37f54e014cff",
+    "full_eval.py": "fee889f7a9290bd08986b3aec233992a300e33b53d5696fc37be4220b54e93c6",
+    "pilot_source_manifest.json": "aa2101ee43217a7a77e3cbfb9f66be6be78d06e55244a181663c5de63f52bdda",
+    "protocol.json": "921b722eae41a4d7043f754558e348af21294324394b51e4a2e8dae98dd0a1c0",
+    "restore_guard.sh": "f8ff41602116c6d3fd16ca3439f1d244e11a6dbb780c89d83f65318390c9c599",
+    "restore_holder.sh": "311998bddc09bbef3759c0885b4f6798a9b19ca249a5a0ffdc4bb6de2e37add0",
+    "reused_pilot_functions.py": "903fd5d13e76aa180d5bac19bf6b276c463eb87bb6bf3650831985e2a9d5f674",
+    "runtime_protocol.json": "6bed9d6a75c405e4e8e739a5c6ec96f923d71c3e13674cb2f7e4bf21cd421de8",
+    "run_pipeline.sh": "1b87b094d436d0d6663660c931c4a12dc3512c725fd2cc0950eec15cc2225ae9",
+    "v6a2_eval.py": "6571d4790bb43c6eab0beb8a2b2997a67fd6a51d71caf63e7d4be8f5e81e2450",
+    "v6a2_loss.py": "ea13cb5589ee1085fb16e3f73415752b72017c198477a13f55ea38ba155f5f83",
+    "v6a2_model.py": "f092ab7e1a7ad4f40fa643f0f55a69869fcae03dabb0121d2fa0f71da325cdf6",
+    "v6a2_targets.py": "3e6aabcb194658a6bd0e9e64b0fa9be232e0b199e28a69d750fa297d2f964d35",
+    "v6a2_train.py": "6e364db2942437a6502e3d52eebcd6a7faede790d8590ff683dc24702efc0b54"
+  },
+  "mutable_tracker_excluded": true
+}

@@ -1,0 +1,6 @@
+# Ultralytics is fixed to the version used by the archived experiment.
+# Install a PyTorch build appropriate for the target CUDA environment.
+ultralytics==8.4.83
+torch
+numpy
+PyYAML

@@ -1,0 +1,211 @@
+{
+  "protocol_id": "AXIS_B2_FULL50_PAIRED_20260930_V1",
+  "status": "FROZEN_PLAN_ONLY",
+  "purpose": "final_thesis_model_training_and_ablation",
+  "method_selection": "B3_axis_fixed_exploratory_selection",
+  "old_e8_statuses_retained": [
+    "STOP_V4_FULL_TRAINING",
+    "STOP_AXIS_FULL_TRAINING"
+  ],
+  "planned_run_root": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930",
+  "budget_options": {
+    "A": {
+      "seeds": [
+        42
+      ],
+      "arms": [
+        "B2",
+        "AXIS"
+      ],
+      "epochs": 50,
+      "optimizer_steps_per_arm": 4150
+    },
+    "B": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "arms": [
+        "B2",
+        "AXIS"
+      ],
+      "epochs": 50,
+      "optimizer_steps_per_arm": 4150
+    }
+  },
+  "recommended_budget": "B",
+  "budget_choice_timing": "before_any_new_development_AP_is_visible",
+  "source_m3_e0": {
+    "path": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_V6A2_MapFirst/runs/m3_full_q/final.pt",
+    "expected_sha256": "c20481309083b51b68111922c33e68250595cbac2f68018369cb26edf69a2d90",
+    "recompute_sha_at_execution": true,
+    "start_from_existing_e8_checkpoint_allowed": false
+  },
+  "source_identity": {
+    "a0_checkpoint_expected_sha256": "4509ee498ed7148d3a7701d6bc260541742be548a18412b0df1e25324227107a",
+    "data_yaml_expected_sha256": "b2bfa180b132246e096906aba9a433c50b0d52bc6853120b6e35ae1114324faf",
+    "axis_e8_verified_loss_source_sha256": "ea13cb5589ee1085fb16e3f73415752b72017c198477a13f55ea38ba155f5f83",
+    "axis_e8_verified_model_source_sha256": "f092ab7e1a7ad4f40fa643f0f55a69869fcae03dabb0121d2fa0f71da325cdf6",
+    "axis_e8_verified_eval_source_sha256": "6571d4790bb43c6eab0beb8a2b2997a67fd6a51d71caf63e7d4be8f5e81e2450",
+    "ultralytics_head_sha256": "5701116d86881827ac9e1e7462dfaa44c33937bd68e23324763459685729e06f",
+    "ultralytics_loss_sha256": "f331c4ff43b73d8eca704dbc0523cf2e2f8ed927bca789cc72d282b9cbc0a41f",
+    "ultralytics_val_sha256": "55068be1bd32ddc3491cfe3b0bf5149ceb46fd301abf0026e6699264f696456a",
+    "recompute_all_at_execution": true
+  },
+  "data": {
+    "train_list": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/train.txt",
+    "train_list_sha256": "60a508664f75c43afe5d5cf16ff0e1998810245eadcf8071248c4f9f98ab4524",
+    "train_images": 14934,
+    "train_patient_groups": 8896,
+    "development_list": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/validation.txt",
+    "development_list_sha256": "5f716397ccf145085e107789afc7946013a81fc5bd50fc38b131a146475da202",
+    "development_images": 1660,
+    "development_patient_groups": 990,
+    "patient_mapping_sha256": "badbd2abaa08afdde1e6b48c43759f061959b4a6d4adc1f38be836595fc4e6b4",
+    "eligibility_sha256": "72722a5e04812defa5105f1ffd1e16fdca7fcf74cb0b4e84c768d338001be911",
+    "train_development_patient_overlap": 0,
+    "test_role": "exposed_descriptive_only_after_all_training_and_main_rules_frozen"
+  },
+  "method": {
+    "b2_loss": "actual_batch_size*native_o2o_box_total + Q_loss",
+    "axis_loss": "actual_batch_size*native_o2o_box_total + Q_loss + actual_batch_size*lambda_geo*L_geo_axis",
+    "L_geo_axis": "mean_fg[(2-2**IoU)+0.5*(abs(dx)/max(GT_width,stride)+abs(dy)/max(GT_height,stride))]",
+    "lambda_geo": 0.6070424318313599,
+    "lambda_q": 1.0,
+    "foreground_scope": "all_native_o2o_assigned_foreground_in_actual_batch",
+    "native_regression": "CIoU_plus_normalized_direct_distance_L1_reg_max_1",
+    "native_assigner_target_scores_box_weighting": "unchanged",
+    "trainable": [
+      "one2one_cv2",
+      "Q_heads"
+    ],
+    "frozen": [
+      "backbone",
+      "neck",
+      "O2M",
+      "one2one_cv3"
+    ],
+    "q_inputs_detached": true,
+    "inference_scorer": "identity",
+    "architecture_inference_unchanged": true,
+    "new_formula_or_parameter_search_allowed": false
+  },
+  "training": {
+    "host": "hpc6",
+    "physical_gpu": 0,
+    "expected_gpu_uuid": "GPU-bdf1c899-1408-3f77-05c1-4584e658333d",
+    "ultralytics_version": "8.4.83",
+    "image_size": 1024,
+    "global_batch": 180,
+    "workers": 40,
+    "epochs": 50,
+    "steps_per_epoch": 83,
+    "last_batch_size": 174,
+    "steps_per_arm": 4150,
+    "optimizer": "AdamW",
+    "box_lr": 1e-05,
+    "q_lr": 0.0001,
+    "weight_decay": 0.0005,
+    "lr_schedule": "constant_same_as_axis_e8_pilot",
+    "precision": "bf16_amp",
+    "augmentation": "exact_replay_of_verified_axis_e8_HSV_affine_horizontal_flip_config",
+    "mosaic_mixup_cutmix_copy_paste": 0,
+    "bn_freeze_policy": "exactly_same_as_verified_axis_e8_pilot",
+    "pairing_per_seed": "all_4150_corresponding_steps_identical_on_patient_image_GT_eligibility_augmented_input_actual_batch_size",
+    "primary_checkpoint": "E50",
+    "representative_deliverable": "seed42_E50",
+    "descriptive_trajectory_checkpoints": [
+      10,
+      20,
+      30,
+      40
+    ],
+    "best_epoch_or_seed_selection_allowed": false,
+    "intermediate_development_AP_used_for_training_decisions": false
+  },
+  "evaluation": {
+    "arms": [
+      "A0-R",
+      "B2",
+      "AXIS"
+    ],
+    "split_primary": "development",
+    "same_official_evaluator_for_all": true,
+    "branch": "one2one",
+    "nms": "none",
+    "scorer": "identity_delta_plus_0_delta_minus_0",
+    "first_topk": 300,
+    "second_topk": 300,
+    "score_strict_gt": 0.001,
+    "class_count": 6,
+    "iou_thresholds": [
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "primary_metric": "six_class_macro_mAP50_95_fraction",
+    "secondary_metrics": [
+      "AP50",
+      "AP75",
+      "AP80",
+      "AP85",
+      "AP90",
+      "AP95",
+      "H",
+      "per_class_AP",
+      "training_convergence"
+    ],
+    "primary_comparisons": [
+      "AXIS_minus_A0-R",
+      "AXIS_minus_B2",
+      "B2_minus_A0-R"
+    ],
+    "patient_bootstrap": {
+      "resamples": 10000,
+      "seed": 20260930,
+      "unit": "patient_group",
+      "ci": "percentile_2.5_97.5",
+      "recompute_official_AP": true
+    },
+    "test_may_select_model": false
+  },
+  "decision_policy": {
+    "new_development_GO_gate": false,
+    "valid_result_independent_of_metric_direction": true,
+    "report_all_seeds_and_all_three_comparisons": true,
+    "scientific_negative_result_is_not_INVALID": true
+  },
+  "gpu_holder_restore": "after_all_gpu_training_and_evaluation_only_then_computation.py_device_0_mem_50",
+  "training_started": false,
+  "execution": {
+    "budget": "B",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "arms": [
+      "B2",
+      "AXIS"
+    ],
+    "fresh_initialization": "M3_E0_each_run",
+    "user_resource_clarification": "retain_batch180_workers40_4150_steps",
+    "test_read": 0,
+    "convergence": "training_loss_full_trajectory_and_saved_E10_E20_E30_E40; no_extra_AP_selection",
+    "actual_holder_script": "/hpc/zhou228/GPU_computation/computation.py",
+    "actual_holder_python": "/hpc/zhou228/GPU_computation/venv/bin/python",
+    "restore_args": [
+      "device=0",
+      "mem=50"
+    ],
+    "restoration_timing": "all_six_training_and_seven_primary_GPU_evaluations_completed; before_CPU_bootstrap"
+  }
+}

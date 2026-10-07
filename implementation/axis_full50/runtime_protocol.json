@@ -1,0 +1,248 @@
+{
+  "experiment": "A0R_O2O_V6A2_MapFirst",
+  "stage": "m4_hpc6_batch180_workers40_amendment_before_training",
+  "source_plan": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_V6/EXPERIMENT_PLAN.md",
+  "a0_checkpoint": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/runs/yolo26x_5dataset_patient_split/weights/best.pt",
+  "data_yaml": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/data.yaml",
+  "train_list": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/train.txt",
+  "development_validation_list": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/validation.txt",
+  "patient_folds": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/stage1_3-fold-OOF/manifests/fold_assignments.csv",
+  "eligibility_matrix": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/stage0/eligibility.yaml",
+  "historical_a0_report": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/B_SERIES_AND_O2O_SCORING_RESEARCH_REPORT.md",
+  "historical_b4_0_report": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/B4_0_Frozen_A0_O2M_NMS_branch_audit/REPORT.md",
+  "ultralytics_version": "8.4.83",
+  "ultralytics_local_source_sha256": {
+    "nn/modules/head.py": "5701116d86881827ac9e1e7462dfaa44c33937bd68e23324763459685729e06f",
+    "utils/loss.py": "f331c4ff43b73d8eca704dbc0523cf2e2f8ed927bca789cc72d282b9cbc0a41f",
+    "models/yolo/detect/val.py": "55068be1bd32ddc3491cfe3b0bf5149ceb46fd301abf0026e6699264f696456a"
+  },
+  "imgsz": 1024,
+  "class_names": [
+    "Pneumonia",
+    "Pneumothorax",
+    "Cardiomegaly",
+    "Aortic enlargement",
+    "Pleural thickening",
+    "Pulmonary fibrosis"
+  ],
+  "seed": 42,
+  "training_data_rule": {
+    "inner_holdout_fraction_of_patient_groups": 0.1,
+    "inner_holdout_order": "sha256('v6a2-inner-42-' + patient_group) ascending, first ceil(10%)",
+    "inner_refit": "after inner Q-loss epoch selection retrain from identical A0 and Q seed on both outer training folds for e_i",
+    "global_batch": 180,
+    "workers": 40,
+    "single_image_augment": "Ultralytics 8.4.83 default HSV affine and horizontal flip",
+    "mosaic": 0.0,
+    "mixup": 0.0,
+    "cutmix": 0.0,
+    "copy_paste": 0.0,
+    "amp": true,
+    "m2_outer_fold_runtime": {
+      "0": {
+        "global_batch": 20,
+        "workers": 8,
+        "protocol_sha256": "1070c05eb69e01b47d2eb18dd2ff0e1cbac4a341805408a7a35e634214640587"
+      },
+      "1": {
+        "global_batch": 60,
+        "workers": 30,
+        "protocol_sha256": "c7524f1a24337ae860de43ff64b3099ba1a59ffc268746b3320550174a852a5d"
+      },
+      "2": {
+        "global_batch": 60,
+        "workers": 30,
+        "protocol_sha256": "c7524f1a24337ae860de43ff64b3099ba1a59ffc268746b3320550174a852a5d"
+      }
+    }
+  },
+  "inference": {
+    "branch": "one2one",
+    "nms": "none",
+    "first_topk": 300,
+    "second_topk": 300,
+    "score_floor_strict_gt": 0.001
+  },
+  "scorer_grid": {
+    "delta_plus": [
+      0,
+      2,
+      3,
+      4.5,
+      6
+    ],
+    "delta_minus": [
+      0,
+      0.5,
+      1
+    ],
+    "b": [
+      0.2,
+      0.35,
+      0.5
+    ],
+    "k": [
+      4,
+      8
+    ]
+  },
+  "scorer_selection_split": "training_patient_oof_only",
+  "scorer_selection_metric": "pooled_mAP50_95_then_within_0.02_pp_min_delta_sum_then_lexicographic",
+  "scorer_insertion": "before_first_top300",
+  "locked_scorer": {
+    "delta_plus": 0.0,
+    "delta_minus": 0.0,
+    "b": 0.2,
+    "k": 4.0
+  },
+  "quality_head": {
+    "levels": 3,
+    "weights_shared_across_levels": false,
+    "h_cls_channels_expected": [
+      384,
+      384,
+      384
+    ],
+    "h_cls_channels_verified": [
+      384,
+      384,
+      384
+    ],
+    "h_box_channels_verified": [
+      96,
+      96,
+      96
+    ],
+    "spatial_shapes_verified": [
+      [
+        128,
+        128
+      ],
+      [
+        64,
+        64
+      ],
+      [
+        32,
+        32
+      ]
+    ],
+    "raw_box_input": "four_raw_regression_outputs_before_decode",
+    "detach_all_three_inputs": true,
+    "projection_channels": {
+      "cls": 64,
+      "box": 64,
+      "raw_box": 16
+    },
+    "fusion": "concat_144_then_conv3x3_128_silu_then_conv1x1_6",
+    "activation": "SiLU",
+    "normalization": "none",
+    "output_channels_per_level": 6,
+    "last_conv_zero_init": true
+  },
+  "quality_target": "same_class_max((2^IoU-1)*exp(-center_distance_squared/gt_diagonal_squared))",
+  "q_buckets": [
+    0,
+    0.05,
+    0.2,
+    0.4,
+    0.7,
+    1
+  ],
+  "ordinary_samples_per_image_class_bucket": 32,
+  "good_samples_per_gt": 32,
+  "b0_priority": "current_A0_high_score_E_cell_hard_negatives",
+  "box_optimization": "native_o2o_assigner_target_scores_and_box_components_only",
+  "native_loss_gains": {
+    "box": 7.5,
+    "cls_diagnostic": 0.5,
+    "dfl_or_direct_l1": 1.5
+  },
+  "run_modes": [
+    "q_only",
+    "box_native",
+    "box_geo"
+  ],
+  "lambda_q": 1.0,
+  "lambda_geo": 0.6070424318313599,
+  "q_optimizer": {
+    "name": "AdamW",
+    "lr": 0.0001,
+    "max_epochs": 20,
+    "epoch_selector": "inner_training_patient_holdout_min_q_loss_tie_earliest"
+  },
+  "box_optimizer": {
+    "name": "AdamW",
+    "box_lr": 1e-05,
+    "q_lr": 0.0001,
+    "weight_decay": 0.0005,
+    "epochs": 50,
+    "early_stop": "correctness_or_unrecoverable_resource_failure_only"
+  },
+  "full_q_epoch_rule": "median_of_three_outer_fold_inner_selected_epochs",
+  "e1_e2_e3": [
+    18,
+    20,
+    18
+  ],
+  "E_Q_full": 18,
+  "m3_checkpoint": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_V6A2_MapFirst/runs/m3_full_q/final.pt",
+  "box_arms_start_from": "M3_full_training_q_only_checkpoint",
+  "box_arms_primary_scorer": "fixed_training_oof_winner",
+  "box_epoch_selector": "fixed_E50_no_epoch_selection",
+  "report_both_ap_paths": true,
+  "oof_cache": "all_raw_slots_per_image_float32",
+  "geo_d2_stats": [
+    "median",
+    "p90",
+    "p95",
+    "p99",
+    "max"
+  ],
+  "test_role": "descriptive_once_after_all_selection_frozen",
+  "m3_resource_amendment": {
+    "scope": "M3_and_later_B2_B3_training",
+    "source_post_m2_protocol_sha256": "a94ac737213012394dc25eb1e1946ecd60613c63bea557d240e5c5ab307891b6",
+    "user_choice": "batch60_workers30"
+  },
+  "m4_batch_normalization": {
+    "source_post_m3_protocol_sha256": "8add61d46f615600ee68e182a1526b3ffab770b882571af30247a5a62cc9622c",
+    "p1_frozen_lambda_geo": 0.6070424318313599,
+    "native_box_loss_batch_factor": "actual_batch_size",
+    "geo_loss_batch_factor": "actual_batch_size",
+    "reason": "preserve_P1_per_image_gradient_scale_with_actual_batch_size_180",
+    "training_only_gradient_gate_sha256": "4997177c3323bcb5d4a0035554de94a5b95324ffb70d5a52c1dae770c672e87c"
+  },
+  "hpc6_resource_amendment": {
+    "source_m4_protocol_sha256": "594fc26dfe7eba84e8ac4485c4792c4b074dcb47831782f0120a940305f3d568",
+    "host": "hpc6",
+    "physical_gpu": 0,
+    "gpu_uuid": "GPU-bdf1c899-1408-3f77-05c1-4584e658333d",
+    "global_batch": 180,
+    "workers": 40,
+    "reason": "user_requested_hpc6_migration_after_hpc7_manual_stop",
+    "both_B2_and_B3_rerun_from_same_frozen_M3_E0": true,
+    "old_H100_B2_and_hpc7_partial_B3_immutable": true,
+    "lambda_geo_batch_factor": "actual_batch_size",
+    "test_data_read_before_selection": 0,
+    "holder_only_after_all_gpu_stages": [
+      "device=0",
+      "mem=50"
+    ]
+  },
+  "pilot": {
+    "source_root": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_V6A2_MapFirst",
+    "source_m3_checkpoint": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_V6A2_MapFirst/runs/m3_full_q/final.pt",
+    "seed": 42,
+    "epochs": 50,
+    "batch": 180,
+    "workers": 40,
+    "gpu_uuid": "GPU-bdf1c899-1408-3f77-05c1-4584e658333d",
+    "arms": [
+      "B2",
+      "AXIS"
+    ],
+    "validation_epoch": 50,
+    "population_json": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/B1_Frozen_Feature_Q_Learnability_Probe/CPU_preparation/population.json"
+  }
+}
