@@ -1,0 +1,167 @@
+{
+  "compiled_utc_date": "2026-10-23",
+  "record_type": "release provenance, compiled from read-only server checks",
+  "original_files_modified": false,
+  "frozen_annotation_reference": "All_data.csv",
+  "partition_reference": "patient_level_split_image_assignments.csv",
+  "files": [
+    {
+      "package_path": "All_data.csv",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/All_data.csv",
+      "bytes": 3303045,
+      "sha256": "a44d2e86b847da005a6b4ede1135606fa79f2aa0d08bd0652a377e2713c75b50",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "new_train.csv",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_train.csv",
+      "bytes": 2651181,
+      "sha256": "c09b6b7862ea259031a478399adecaeeeae82a8d878baee5a4a77ee59fcecdaf",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "new_validation.csv",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_validation.csv",
+      "bytes": 294755,
+      "sha256": "d53e83e80132a236084a433a25a455a7b94fa3c7e7152e2a92139fe7517711e8",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "new_test.csv",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_test.csv",
+      "bytes": 326122,
+      "sha256": "e5ebdc082d874cc5e9e6550b5d4cf36aae2aa6781c8cc49e5d0845c34a4935fb",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "patient_level_split_image_assignments.csv",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/patient_level_split_image_assignments.csv",
+      "bytes": 2603631,
+      "sha256": "4ddb0f76e9a5f2bb81be1a29a96e4d4d968e1ba277a576d7e20686b0fcabf4ac",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "dataset_manifest.csv",
+      "source_path": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/dataset_manifest.csv",
+      "bytes": 6912785,
+      "sha256": "6eeddc54fcdec8c5b59abc5a0e86cea1a15066478d4f51f61776740d7f53d1af",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/prepare_dataset.py",
+      "source_path": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/prepare_dataset.py",
+      "bytes": 15078,
+      "sha256": "f861f6114e019370a5164af5a797cb51e9fa4d0af7098f0e00e68e61f233b8c9",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/verify_setup.py",
+      "source_path": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/verify_setup.py",
+      "bytes": 8917,
+      "sha256": "2540fc698de331820b744788919843d5343117e885054c389fc136c6f865b4c5",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/data.yaml",
+      "source_path": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/data.yaml",
+      "bytes": 240,
+      "sha256": "b2bfa180b132246e096906aba9a433c50b0d52bc6853120b6e35ae1114324faf",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/generate_patient_level_splits.py",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/generate_patient_level_splits.py",
+      "bytes": 23754,
+      "sha256": "9b00b47e124ddce4fa353afe7aa2baeaa6a0c63b255798ea3cc714c3464f80ed",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/generate_train_csv.py",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/generate_train_csv.py",
+      "bytes": 12116,
+      "sha256": "e7dd7ad6f9e65812e20f7b52a4c59b4682e09c8e0f4a508dfb4f864064c051a6",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/vindr/create_annotations_train_wbf.py",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/VinDR-CXR/create_annotations_train_wbf.py",
+      "bytes": 10498,
+      "sha256": "a922aaf767c25f2641965edb0983dc736d2d58dd00160aa10dddcabe5bf47213",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/vindr/update_train_rle_box_from_wbf.py",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/VinDR-CXR/update_train_rle_box_from_wbf.py",
+      "bytes": 2477,
+      "sha256": "d7dfb2751034fda53d57f2a43ea6c3a823e885c565badf6a1f59b2dd6ba83ee4",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/vindr/clamp_negative_train_rle_coordinates.py",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/VinDR-CXR/clamp_negative_train_rle_coordinates.py",
+      "bytes": 1463,
+      "sha256": "9047c6e40867f3fe39d89924527646caed2648d46865c8f35271d8698d909ac5",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/vindr/clean_vindr_same_class_overlaps.py",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/clean_vindr_same_class_overlaps.py",
+      "bytes": 9899,
+      "sha256": "34dca9e6ad88f35a1d404dffbdd93a7861e2063bd4599cc0cd435bcfe18003e7",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/siim/prepare_siim_yolo.py",
+      "source_path": "/hpc/zhou228/x-ray/Trials/trail-SIIM/prepare_siim_yolo.py",
+      "bytes": 7935,
+      "sha256": "be0cab62ba6d87dbca140ef39e01ae463a9555ee6783eb0f521d964e6354cace",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/siim/merge_train_rle_connected_masks.py",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/SIIM-ACR/merge_train_rle_connected_masks.py",
+      "bytes": 8500,
+      "sha256": "ac579924a1170476f47730aa987773dfbfcbd585efe355db6d9a9ec8a61dc762",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "scripts/original/siim/generate_train_boxes_from_merged_rle.py",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/SIIM-ACR/generate_train_boxes_from_merged_rle.py",
+      "bytes": 5252,
+      "sha256": "6a6e076b0fa1fff10255ea5df34cfd0f7ec85743443571c55dfdcc197917faf3",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "records/patient_level_split_audit.json",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/patient_level_split_audit.json",
+      "bytes": 5639,
+      "sha256": "769c36098a3a177047f0d3f9fdf80402e65eac30ee70f911939b5847b8bade18",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "records/patient_group_mapping.csv",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/patient_group_mapping.csv",
+      "bytes": 2239080,
+      "sha256": "ca0b92244dedee89a7d447bcaaf843b99ab7d9522b225d071bb741fef2767a70",
+      "copied_without_modification": true
+    },
+    {
+      "package_path": "records/vindr_overlap60_merge_audit.csv",
+      "source_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/vindr_overlap60_merge_audit.csv",
+      "bytes": 958062,
+      "sha256": "6b279b72211e3e1c12295a344efb9d9bc1dc8a239ce7769be60e7a906ddca4c6",
+      "copied_without_modification": true
+    }
+  ],
+  "generated_release_files": [
+    "README.md",
+    "SHA256SUMS",
+    "scripts/verify_frozen_dataset.py",
+    "records/release_provenance.json",
+    "records/vindr_record_changes.json"
+  ],
+  "notes": [
+    "The portable verifier and release documentation were added for this release; they are not historical training artifacts.",
+    "The final_interface_audit.json was copied from the earlier read-only final-interface audit."
+  ]
+}

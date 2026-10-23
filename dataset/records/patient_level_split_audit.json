@@ -1,0 +1,174 @@
+{
+  "all_data": {
+    "boxes": 27749,
+    "class_boxes": {
+      "Aortic enlargement": 3266,
+      "Cardiomegaly": 3210,
+      "Pleural thickening": 4233,
+      "Pneumonia": 9786,
+      "Pneumothorax": 3648,
+      "Pulmonary fibrosis": 3606
+    },
+    "class_images": {
+      "Aortic enlargement": 3266,
+      "Cardiomegaly": 3210,
+      "Pleural thickening": 2632,
+      "Pneumonia": 6177,
+      "Pneumothorax": 2907,
+      "Pulmonary fibrosis": 2318,
+      "no_finding": 3375
+    },
+    "images": 18438,
+    "negative_images": 3375,
+    "positive_images": 15063,
+    "rows": 31124,
+    "source_images": {
+      "ChestX-Det": 1696,
+      "MS-CXR": 715,
+      "RSNA": 6820,
+      "RSNA/ChestX-Det": 123,
+      "SIIM-ACR": 3310,
+      "VinDR-CXR": 5774
+    }
+  },
+  "assignment_csv": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/patient_level_split_image_assignments.csv",
+  "assignment_sha256": "4ddb0f76e9a5f2bb81be1a29a96e4d4d968e1ba277a576d7e20686b0fcabf4ac",
+  "backups": {
+    "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/final_new_split_audit.json": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/final_new_split_audit.before_patient_level_split_20260813.json",
+    "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/final_new_split_image_assignments.csv": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/final_new_split_image_assignments.before_patient_level_split_20260813.csv",
+    "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_test.csv": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_test.before_patient_level_split_20260813.csv",
+    "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_train.csv": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_train.before_patient_level_split_20260813.csv",
+    "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_train_test_summary.png": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_train_test_summary.before_patient_level_split_20260813.png"
+  },
+  "exact_input_row_union": true,
+  "input": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/All_data.csv",
+  "input_sha256": "a44d2e86b847da005a6b4ede1135606fa79f2aa0d08bd0652a377e2713c75b50",
+  "method": "deterministic patient-grouped greedy multilabel stratification",
+  "patient_group_count": 10985,
+  "patient_group_overlap": {
+    "train_test": 0,
+    "train_validation": 0,
+    "validation_test": 0
+  },
+  "patient_id_available_images": 12664,
+  "patient_id_unavailable_singleton_images": 5774,
+  "patient_id_unavailable_sources": [
+    "VinDR-CXR"
+  ],
+  "patient_mapping_csv": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/patient_group_mapping.csv",
+  "patient_mapping_sha256": "ca0b92244dedee89a7d447bcaaf843b99ab7d9522b225d071bb741fef2767a70",
+  "requested_fractions": {
+    "test": 0.1,
+    "train": 0.81,
+    "validation": 0.09
+  },
+  "seed": 42,
+  "siim_source_local_patient_id_images": 13,
+  "target_images": {
+    "test": 1844,
+    "train": 14934,
+    "validation": 1660
+  },
+  "test": {
+    "boxes": 2770,
+    "class_boxes": {
+      "Aortic enlargement": 327,
+      "Cardiomegaly": 321,
+      "Pleural thickening": 424,
+      "Pneumonia": 975,
+      "Pneumothorax": 363,
+      "Pulmonary fibrosis": 360
+    },
+    "class_images": {
+      "Aortic enlargement": 327,
+      "Cardiomegaly": 321,
+      "Pleural thickening": 264,
+      "Pneumonia": 620,
+      "Pneumothorax": 291,
+      "Pulmonary fibrosis": 232,
+      "no_finding": 337
+    },
+    "images": 1844,
+    "negative_images": 337,
+    "positive_images": 1507,
+    "rows": 3107,
+    "source_images": {
+      "ChestX-Det": 169,
+      "MS-CXR": 72,
+      "RSNA": 683,
+      "RSNA/ChestX-Det": 12,
+      "SIIM-ACR": 331,
+      "VinDR-CXR": 577
+    }
+  },
+  "test_csv": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_test.csv",
+  "test_sha256": "e5ebdc082d874cc5e9e6550b5d4cf36aae2aa6781c8cc49e5d0845c34a4935fb",
+  "train": {
+    "boxes": 22477,
+    "class_boxes": {
+      "Aortic enlargement": 2645,
+      "Cardiomegaly": 2601,
+      "Pleural thickening": 3425,
+      "Pneumonia": 7928,
+      "Pneumothorax": 2957,
+      "Pulmonary fibrosis": 2921
+    },
+    "class_images": {
+      "Aortic enlargement": 2645,
+      "Cardiomegaly": 2601,
+      "Pleural thickening": 2132,
+      "Pneumonia": 5001,
+      "Pneumothorax": 2355,
+      "Pulmonary fibrosis": 1878,
+      "no_finding": 2734
+    },
+    "images": 14934,
+    "negative_images": 2734,
+    "positive_images": 12200,
+    "rows": 25211,
+    "source_images": {
+      "ChestX-Det": 1375,
+      "MS-CXR": 579,
+      "RSNA": 5522,
+      "RSNA/ChestX-Det": 100,
+      "SIIM-ACR": 2680,
+      "VinDR-CXR": 4678
+    }
+  },
+  "train_csv": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_train.csv",
+  "train_sha256": "c09b6b7862ea259031a478399adecaeeeae82a8d878baee5a4a77ee59fcecdaf",
+  "validation": {
+    "boxes": 2502,
+    "class_boxes": {
+      "Aortic enlargement": 294,
+      "Cardiomegaly": 288,
+      "Pleural thickening": 384,
+      "Pneumonia": 883,
+      "Pneumothorax": 328,
+      "Pulmonary fibrosis": 325
+    },
+    "class_images": {
+      "Aortic enlargement": 294,
+      "Cardiomegaly": 288,
+      "Pleural thickening": 236,
+      "Pneumonia": 556,
+      "Pneumothorax": 261,
+      "Pulmonary fibrosis": 208,
+      "no_finding": 304
+    },
+    "images": 1660,
+    "negative_images": 304,
+    "positive_images": 1356,
+    "rows": 2806,
+    "source_images": {
+      "ChestX-Det": 152,
+      "MS-CXR": 64,
+      "RSNA": 615,
+      "RSNA/ChestX-Det": 11,
+      "SIIM-ACR": 299,
+      "VinDR-CXR": 519
+    }
+  },
+  "validation_csv": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_validation.csv",
+  "validation_sha256": "d53e83e80132a236084a433a25a455a7b94fa3c7e7152e2a92139fe7517711e8"
+}

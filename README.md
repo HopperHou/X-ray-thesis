@@ -6,7 +6,7 @@ Source code and official experiment records for the current thesis model: **AXIS
 
 - `implementation/axis_full50/`: model, quality head, losses, training, evaluation, and statistical analysis code, including the original frozen protocols and SHA256 manifests.
 - `refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/`: official E50 reports, per-class results, convergence CSV, evaluation matrices, and pairing and freeze checks.
-- `dataset/`: CSV files only. Raw images, DICOM files, YOLO label text files, and dataset archives are excluded.
+- `dataset/`: frozen annotation and partition CSV files, original preparation scripts, provenance records and SHA256 checksums. See the [dataset reproduction guide](dataset/README.md). Raw images, DICOM files, YOLO label text files, and dataset image archives are excluded.
 - `weights/`: trained model checkpoints, stored separately from dataset files and handled with Git LFS.
 
 The repository includes the original AXIS E50 checkpoints for seeds 42, 43, and 44, plus the final `dataset/All_data.csv`. All four files were downloaded from hpc6 and verified against the SHA256 values in the original experiment records. File checksums are listed in [SHA256SUMS](SHA256SUMS).
@@ -68,7 +68,7 @@ sha256sum -c SHA256SUMS
 
 ## Dataset metadata
 
-The original final data index is `/hpc/zhou228/x-ray/Dataset/Simplified_dataset/All_data.csv`. Its SHA256 is `a44d2e86b847da005a6b4ede1135606fa79f2aa0d08bd0652a377e2713c75b50`. The included CSV contains 31,124 rows covering 18,438 unique images: 27,749 positive bounding-box rows and 3,375 `no_finding` rows. CSV metadata does not include the corresponding images.
+The original final data index is `/hpc/zhou228/x-ray/Dataset/Simplified_dataset/All_data.csv`. Its SHA256 is `a44d2e86b847da005a6b4ede1135606fa79f2aa0d08bd0652a377e2713c75b50`. The included CSV contains 31,124 rows covering 18,438 retained image records: 27,749 positive bounding-box rows and 3,375 `no_finding` rows. CSV metadata does not include the corresponding images. Frozen training, validation and internal-test CSV files, group assignments and the training manifest are provided alongside it; their verification and reproduction scope are described in [dataset/README.md](dataset/README.md).
 
 CSV columns: `id`, `type_of_abnormalities`, `x_min`, `y_min`, `x_max`, `y_max`, `source`, `width`, and `height`.
 

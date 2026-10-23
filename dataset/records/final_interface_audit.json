@@ -1,0 +1,127 @@
+{
+  "status": "PASS",
+  "read_only_server": true,
+  "files": {
+    "All_data.csv": {
+      "remote_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/All_data.csv",
+      "sha256": "a44d2e86b847da005a6b4ede1135606fa79f2aa0d08bd0652a377e2713c75b50",
+      "rows": 31124,
+      "columns": [
+        "id",
+        "type_of_abnormalities",
+        "x_min",
+        "y_min",
+        "x_max",
+        "y_max",
+        "source",
+        "width",
+        "height"
+      ]
+    },
+    "new_train.csv": {
+      "remote_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_train.csv",
+      "sha256": "c09b6b7862ea259031a478399adecaeeeae82a8d878baee5a4a77ee59fcecdaf",
+      "rows": 25211,
+      "columns": [
+        "id",
+        "type_of_abnormalities",
+        "x_min",
+        "y_min",
+        "x_max",
+        "y_max",
+        "source",
+        "width",
+        "height"
+      ]
+    },
+    "new_validation.csv": {
+      "remote_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_validation.csv",
+      "sha256": "d53e83e80132a236084a433a25a455a7b94fa3c7e7152e2a92139fe7517711e8",
+      "rows": 2806,
+      "columns": [
+        "id",
+        "type_of_abnormalities",
+        "x_min",
+        "y_min",
+        "x_max",
+        "y_max",
+        "source",
+        "width",
+        "height"
+      ]
+    },
+    "new_test.csv": {
+      "remote_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/new_test.csv",
+      "sha256": "e5ebdc082d874cc5e9e6550b5d4cf36aae2aa6781c8cc49e5d0845c34a4935fb",
+      "rows": 3107,
+      "columns": [
+        "id",
+        "type_of_abnormalities",
+        "x_min",
+        "y_min",
+        "x_max",
+        "y_max",
+        "source",
+        "width",
+        "height"
+      ]
+    },
+    "patient_level_split_image_assignments.csv": {
+      "remote_path": "/hpc/zhou228/x-ray/Dataset/Simplified_dataset/patient_level_split_image_assignments.csv",
+      "sha256": "4ddb0f76e9a5f2bb81be1a29a96e4d4d968e1ba277a576d7e20686b0fcabf4ac",
+      "rows": 18438,
+      "columns": [
+        "source",
+        "id",
+        "patient_group",
+        "patient_id_basis",
+        "partition",
+        "image_level_class_signature"
+      ]
+    },
+    "dataset_manifest.csv": {
+      "remote_path": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/dataset_manifest.csv",
+      "sha256": "6eeddc54fcdec8c5b59abc5a0e86cea1a15066478d4f51f61776740d7f53d1af",
+      "rows": 18438,
+      "columns": [
+        "partition",
+        "anonymous_key",
+        "source",
+        "id",
+        "image_path",
+        "label_path",
+        "original_path",
+        "width",
+        "height",
+        "boxes",
+        "negative"
+      ]
+    }
+  },
+  "summary": {
+    "new_train.csv": {
+      "image_records": 14934,
+      "boxes": 22477,
+      "negative_records": 2734
+    },
+    "new_validation.csv": {
+      "image_records": 1660,
+      "boxes": 2502,
+      "negative_records": 304
+    },
+    "new_test.csv": {
+      "image_records": 1844,
+      "boxes": 2770,
+      "negative_records": 337
+    },
+    "All_data.csv": {
+      "image_records": 18438,
+      "boxes": 27749,
+      "negative_records": 3375
+    }
+  },
+  "split_union_equals_final_table": true,
+  "manifest_matches_assignments_and_splits": true,
+  "repository_All_data_matches_server": true,
+  "all_hashes_match_frozen_preparation_script": true
+}

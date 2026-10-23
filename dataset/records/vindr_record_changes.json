@@ -1,0 +1,49 @@
+{
+  "record_type": "summary of previously verified saved-table comparisons; not an original decision log",
+  "final_reference": "All_data.csv",
+  "verified_operations": [
+    "class-agnostic WBF coordinate averaging with equal reader weights and threshold 0.60",
+    "large-box filtering",
+    "source-table adaptation and negative-coordinate correction",
+    "target-class selection",
+    "same-class enclosing-box consolidation"
+  ],
+  "enclosing_box_audit": {
+    "file": "vindr_overlap60_merge_audit.csv",
+    "groups": 3009,
+    "input_boxes": 6505,
+    "output_boxes": 3009,
+    "training_branch_boxes_after_verified_consolidation": 11339,
+    "scope": "verified same-class enclosing-box groups only; excludes earlier WBF and later record changes"
+  },
+  "later_training_branch": {
+    "boxes_in_later_train_table": 11296,
+    "missing_image_identifiers": 12,
+    "boxes_carried_by_missing_identifiers": 34,
+    "additional_two_to_one_envelopes": 9,
+    "additional_box_reduction": 9,
+    "original_decision_rules_recovered": false
+  },
+  "consensus_branch": {
+    "target_boxes_before": 1154,
+    "target_boxes_after": 1152,
+    "changes": [
+      "one Aortic enlargement box removed",
+      "two Cardiomegaly boxes replaced by one enclosing box"
+    ],
+    "original_decision_rules_recovered": false
+  },
+  "negative_sampling_history": {
+    "final_source_training_branch_negative_count": 765,
+    "final_source_consensus_branch_negative_count": 166,
+    "historical_training_prefix_count": 764,
+    "extra_training_negative_append_history_recovered": false
+  },
+  "final_vindr_reference": {
+    "image_records": 5774,
+    "positive_image_records": 4843,
+    "boxes": 12448,
+    "task_negative_image_records": 931
+  },
+  "interpretation": "Use the released final table and fixed partitions for the exact experiment annotation state. Historical scripts document verified steps but cannot recover every original curation decision."
+}

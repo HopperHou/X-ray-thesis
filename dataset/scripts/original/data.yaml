@@ -1,0 +1,13 @@
+path: /hpc/zhou228/x-ray/Trials/New_trail_5dataset
+train: train.txt
+val: validation.txt
+test: test.txt
+
+nc: 6
+names:
+  0: Pneumonia
+  1: Pneumothorax
+  2: Cardiomegaly
+  3: Aortic enlargement
+  4: Pleural thickening
+  5: Pulmonary fibrosis
