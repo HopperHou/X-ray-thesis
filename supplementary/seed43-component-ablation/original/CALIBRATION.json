@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "seed": 43,
+  "scale": 0.9108724655881961,
+  "panel": "first four historical seed43 batch180 inputs",
+  "rows": [
+    {
+      "index": 0,
+      "input_sha256": "aa782cf0b03ac15d5cff480d1b219acfd86a2d8a6147c9c6403d01f8da6bf75f",
+      "ordered_paths_sha256": "a530d3df64f186d64fa47bcceefcb2bdd51759ae3aefbef2f6d1e3bc4b28b980",
+      "actual_batch_size": 180,
+      "foreground": 300,
+      "axis_norm": 2.0404147386155764,
+      "isotropic_norm": 2.318293520244749,
+      "ratio": 0.8801364972974448,
+      "production_gradient_relative_L2": 0.0
+    },
+    {
+      "index": 1,
+      "input_sha256": "56e1f5d54ac4c9de3b20f8ed67a29f0fcc70e643ff1963e975b0f3cc3aec5e24",
+      "ordered_paths_sha256": "c49ae2867cd42debeabd5da5074a91c593268831ce2d6f510373f63bc6f63ba7",
+      "actual_batch_size": 180,
+      "foreground": 256,
+      "axis_norm": 1.9768240895143931,
+      "isotropic_norm": 2.2989096975113905,
+      "ratio": 0.8598963637651098,
+      "production_gradient_relative_L2": 0.0
+    },
+    {
+      "index": 2,
+      "input_sha256": "44b99552178490e807151ca445555ac39bd41d9964299a7bafe981e09d5af91e",
+      "ordered_paths_sha256": "d423078138d369b3afc6712c1a3ee1d2edc3c2789d906cbe0bac1045ac2e39da",
+      "actual_batch_size": 180,
+      "foreground": 267,
+      "axis_norm": 1.9896435002881017,
+      "isotropic_norm": 2.1130264223439283,
+      "ratio": 0.9416084338789474,
+      "production_gradient_relative_L2": null
+    },
+    {
+      "index": 3,
+      "input_sha256": "90ade795a0631e70db70d5d4343770d7187e553487b623f8eb0bd331bfdf2007",
+      "ordered_paths_sha256": "ce5462fc89c6f89b8ac7112c0626422d720850dea784e13ad6dc96b44be64706",
+      "actual_batch_size": 180,
+      "foreground": 253,
+      "axis_norm": 2.22796941437888,
+      "isotropic_norm": 1.9926897298133388,
+      "ratio": 1.1180714092341815,
+      "production_gradient_relative_L2": null
+    }
+  ],
+  "optimizer_steps": 0,
+  "BN": "M3 buffers restored before corresponding forwards",
+  "precision": "historical BF16 AMP; FP32 centre re-decoding; CPU FP64 norm sums",
+  "theta_tensors": 24,
+  "quantile": "numpy median linear",
+  "validation_test_used": false
+}

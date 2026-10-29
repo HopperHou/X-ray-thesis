@@ -1,0 +1,77 @@
+{
+  "protocol_id": "AXIS_FIXED_E50_INTERNAL_TEST_20261008_V1",
+  "train_steps": 0,
+  "models": {
+    "A0-R": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "4509ee498ed7148d3a7701d6bc260541742be548a18412b0df1e25324227107a",
+      "complete_AP_matrix": true
+    },
+    "B2_seed42": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "44c7b83daddd4c56469dc0c15ea664e18973de014302d159e84daecfe2f589df",
+      "complete_AP_matrix": true
+    },
+    "AXIS_seed42": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "cab91c3e12404e4a71c36d753e8660353f86a1f9e04e08bef97c155d082d5c39",
+      "complete_AP_matrix": true
+    },
+    "B2_seed43": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "751043f35834a83d97defe8285557823506368a1f017b5c94ff5808ec53a39b7",
+      "complete_AP_matrix": true
+    },
+    "AXIS_seed43": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "fa84ca49eceba47f27a5bbb27a34d586c35cb3f4a4c04e4a22d59f2b071f3443",
+      "complete_AP_matrix": true
+    },
+    "B2_seed44": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "5cb2c7cbdb045eaed50d548e79fca87bdf84f6fef4e14a9a943e22f50eb4eb39",
+      "complete_AP_matrix": true
+    },
+    "AXIS_seed44": {
+      "status": "PASS",
+      "images": 1660,
+      "checkpoint_sha256": "24da82fd11a359c37deb1f41a04fb76a6a13a6eb83434b335b6565adc85ba18f",
+      "complete_AP_matrix": true
+    }
+  },
+  "model_order": [
+    "A0-R",
+    "B2_seed42",
+    "AXIS_seed42",
+    "B2_seed43",
+    "AXIS_seed43",
+    "B2_seed44",
+    "AXIS_seed44"
+  ],
+  "checkpoint_rule": "all_original_fixed_E50_no_selection",
+  "images": 1844,
+  "boxes": 2770,
+  "batch": 2,
+  "workers": 8,
+  "precision": "FP32_evaluation",
+  "imgsz": 1024,
+  "branch": "one2one",
+  "scorer": "identity",
+  "nms": "none",
+  "first_topk": 300,
+  "second_topk": 300,
+  "strict_score_gt": 0.001,
+  "test_list_sha256": "b71760c1ffd1cda682eb9d63c806e47405b5d30bc9097a96125372dd6ce80e76",
+  "new_test_csv_sha256": "e5ebdc082d874cc5e9e6550b5d4cf36aae2aa6781c8cc49e5d0845c34a4935fb",
+  "validated_full_eval_sha256": "fee889f7a9290bd08986b3aec233992a300e33b53d5696fc37be4220b54e93c6",
+  "test_evaluator_sha256": "2d1a738ccd3641ca922c0b2a07ca9bc4bce4584c84f881b8e98e3444f2e514f3",
+  "source_root": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930",
+  "historically_exposed_test": true,
+  "scope": "descriptive evaluation, no model/threshold/epoch/seed selection; no training; retain holder and other users jobs"
+}

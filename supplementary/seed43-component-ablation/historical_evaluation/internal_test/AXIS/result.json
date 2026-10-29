@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "split": "internal_test_historically_exposed",
+  "images": 1844,
+  "checkpoint": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed43/AXIS/epoch_50.pt",
+  "checkpoint_sha256": "fa84ca49eceba47f27a5bbb27a34d586c35cb3f4a4c04e4a22d59f2b071f3443",
+  "scorer": {
+    "delta_plus": 0.0,
+    "delta_minus": 0.0,
+    "b": 0.2,
+    "k": 4.0
+  },
+  "mAP50": 0.5307168460461341,
+  "mAP50_95": 0.2780761954909631,
+  "per_iou_ap": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/AXIS_FIXED_E50_INTERNAL_TEST_20261008/evaluations/AXIS_seed43/per_iou_ap.json",
+  "H": 0.11201624580457245,
+  "per_class": {
+    "0": {
+      "name": "Pneumonia",
+      "AP50": 0.5155517483494967,
+      "AP50_95": 0.2053371147738597
+    },
+    "1": {
+      "name": "Pneumothorax",
+      "AP50": 0.4335348691669613,
+      "AP50_95": 0.20693571735619876
+    },
+    "2": {
+      "name": "Cardiomegaly",
+      "AP50": 0.9145093809281153,
+      "AP50_95": 0.5988176861066131
+    },
+    "3": {
+      "name": "Aortic enlargement",
+      "AP50": 0.8310037256555972,
+      "AP50_95": 0.49692072354812905
+    },
+    "4": {
+      "name": "Pleural thickening",
+      "AP50": 0.24222029918086022,
+      "AP50_95": 0.07332214939502722
+    },
+    "5": {
+      "name": "Pulmonary fibrosis",
+      "AP50": 0.2474810529957741,
+      "AP50_95": 0.08712378176595086
+    }
+  },
+  "mechanism": {
+    "E_GT": 2692,
+    "raw_good_GT": 2671,
+    "first_top300_good_GT": 2600,
+    "final_good_GT": 2419,
+    "duplicate_FP": 5602,
+    "output_count_median": 26.0,
+    "output_count_max": 300
+  },
+  "trace": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/AXIS_FIXED_E50_INTERNAL_TEST_20261008/evaluations/AXIS_seed43/trace.jsonl",
+  "TEST_DATA_READ": 1844
+}

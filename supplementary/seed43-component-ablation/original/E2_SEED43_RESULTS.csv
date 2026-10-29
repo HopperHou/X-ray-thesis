@@ -1,0 +1,19 @@
+partition,seed,arm,mAP50_percent,mAP50_95_percent,training_origin,unit
+validation,43,B2,53.304192525791585,27.584815942609374,historical_H100,one fitted model per configuration; one training seed
+validation,43,AXIS,53.305886509285685,27.589694475851733,historical_H100,one fitted model per configuration; one training seed
+validation,43,O_ONLY,53.271995640707495,27.57364464528324,new_HPC5_A100,one fitted model per configuration; one training seed
+validation,43,O_ISOTROPIC,53.25195563542853,27.579451183597687,new_HPC5_A100,one fitted model per configuration; one training seed
+validation,43,AXIS minus B2,0.0016939834941128347,0.0048785332423560675,"configuration difference, pp; training hardware differs for new vs historical controls",paired seed43 point difference; no between-seed uncertainty
+validation,43,AXIS minus O_ONLY,0.033890868578194865,0.016049830568490284,"configuration difference, pp; training hardware differs for new vs historical controls",paired seed43 point difference; no between-seed uncertainty
+validation,43,AXIS minus O_ISOTROPIC,0.053930873857162276,0.010243292254043725,"configuration difference, pp; training hardware differs for new vs historical controls",paired seed43 point difference; no between-seed uncertainty
+validation,43,O_ONLY minus B2,-0.03219688508408203,-0.011171297326134219,"configuration difference, pp; training hardware differs for new vs historical controls",paired seed43 point difference; no between-seed uncertainty
+validation,43,O_ISOTROPIC minus O_ONLY,-0.020040005278967415,0.00580653831444656,"configuration difference, pp; training hardware differs for new vs historical controls",paired seed43 point difference; no between-seed uncertainty
+internal_test,43,B2,53.15680054193983,27.824311294275304,historical_H100,one fitted model per configuration; one training seed
+internal_test,43,AXIS,53.17135010203141,27.832613098125186,historical_H100,one fitted model per configuration; one training seed
+internal_test,43,O_ONLY,53.15680054193983,27.84639675430565,new_HPC5_A100,one fitted model per configuration; one training seed
+internal_test,43,O_ISOTROPIC,53.155335148952354,27.837444481970774,new_HPC5_A100,one fitted model per configuration; one training seed
+internal_test,43,AXIS minus B2,0.01454956009157756,0.008301803849873689,"configuration difference, pp; training hardware differs for new vs historical controls",paired seed43 point difference; no between-seed uncertainty
+internal_test,43,AXIS minus O_ONLY,0.01454956009157756,-0.013783656180464222,"configuration difference, pp; training hardware differs for new vs historical controls",paired seed43 point difference; no between-seed uncertainty
+internal_test,43,AXIS minus O_ISOTROPIC,0.016014953079057648,-0.004831383845593755,"configuration difference, pp; training hardware differs for new vs historical controls",paired seed43 point difference; no between-seed uncertainty
+internal_test,43,O_ONLY minus B2,0.0,0.02208546003033791,"configuration difference, pp; training hardware differs for new vs historical controls",paired seed43 point difference; no between-seed uncertainty
+internal_test,43,O_ISOTROPIC minus O_ONLY,-0.001465392987480089,-0.008952272334870467,"configuration difference, pp; training hardware differs for new vs historical controls",paired seed43 point difference; no between-seed uncertainty

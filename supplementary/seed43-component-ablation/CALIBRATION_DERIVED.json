@@ -1,0 +1,38 @@
+{
+  "scale": 0.9108724655881961,
+  "rows": [
+    {
+      "batch": 1,
+      "foreground": 300,
+      "axis_norm": 2.0404147386155764,
+      "isotropic_norm": 2.318293520244749,
+      "ratio": 0.8801364972974448,
+      "analytically_scaled_isotropic_norm": 2.1116697347424735
+    },
+    {
+      "batch": 2,
+      "foreground": 256,
+      "axis_norm": 1.9768240895143931,
+      "isotropic_norm": 2.2989096975113905,
+      "ratio": 0.8598963637651098,
+      "analytically_scaled_isotropic_norm": 2.0940135443368146
+    },
+    {
+      "batch": 3,
+      "foreground": 267,
+      "axis_norm": 1.9896435002881017,
+      "isotropic_norm": 2.1130264223439283,
+      "ratio": 0.9416084338789474,
+      "analytically_scaled_isotropic_norm": 1.924697587173419
+    },
+    {
+      "batch": 4,
+      "foreground": 253,
+      "axis_norm": 2.22796941437888,
+      "isotropic_norm": 1.9926897298133388,
+      "ratio": 1.1180714092341815,
+      "analytically_scaled_isotropic_norm": 1.8150862073473524
+    }
+  ],
+  "interpretation": "Median norm-ratio matching at the frozen M3 state; not equal gradients on every batch and not dynamic matching during training."
+}

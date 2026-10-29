@@ -38,6 +38,11 @@
 !/weights/**/*.safetensors
 
 # Never publish runtime caches, local credentials, or dataset image archives.
+!/supplementary/
+/supplementary/*
+!/supplementary/seed43-component-ablation/
+!/supplementary/seed43-component-ablation/**
+
 **/__pycache__/
 *.py[cod]
 .env

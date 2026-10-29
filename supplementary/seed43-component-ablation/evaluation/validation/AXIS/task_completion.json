@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "terminal": true,
+  "started": "2026-10-23T19:16:45.948313+00:00",
+  "ended": "2026-10-23T19:20:21.750144+00:00",
+  "pid": 4009925,
+  "gpu_uuid": "GPU-1a00cc71-9942-6ecf-769a-6de22d5946a5",
+  "checkpoint": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed43/AXIS/epoch_50.pt",
+  "checkpoint_sha256": "fa84ca49eceba47f27a5bbb27a34d586c35cb3f4a4c04e4a22d59f2b071f3443",
+  "images": 1660,
+  "GT": 2502,
+  "precision": "FP32",
+  "batch": 8,
+  "workers": 10,
+  "seconds": 215.8017028599279,
+  "images_per_second_end_to_end": 7.692246993423723,
+  "free_bytes_before_model": 69650219008,
+  "free_bytes_at_completion": 64650608640,
+  "pilot_selection": "all native batches",
+  "numerical_environment": {
+    "torch": "2.11.0+cu126",
+    "CUDA": "12.6",
+    "cudnn": 91002,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "autocast": "FP32 no BF16/FP16 evaluation; validator quantize32",
+    "device_name": "NVIDIA A100 80GB PCIe"
+  },
+  "peak_allocated_bytes": 3380503552,
+  "peak_reserved_bytes": 12192841728,
+  "predictions_sha256": "7de756e2b494315c13f76699da19444cd9a65ffb845b47eca6154ab7de0ffc53",
+  "trace_sha256": "01548f6472a3d6715ad6d3370e354e726d1c8dfeb47257b95decc2b9e1bacfa5",
+  "protocol": "original native O2O, two Top300, strict score>.001, no NMS; native official matching",
+  "historical_protocol_departures": [
+    "HPC5 A100, all four models use identical FP32 batch8/workers10 evaluation",
+    "Historical batch2 results retained separately; no bitwise cross-hardware claim"
+  ],
+  "GT_matching_coordinate_frame": "letterboxed input canvas",
+  "strict_load": true
+}

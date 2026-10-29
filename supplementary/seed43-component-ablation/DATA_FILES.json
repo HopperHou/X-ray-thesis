@@ -1,0 +1,52 @@
+{
+  "frozen_dataset_commit": "288397aaac2283fb2be50982d60c43f1c5bfcbc9",
+  "files": [
+    {
+      "repository_path": "dataset/All_data.csv",
+      "sha256": "a44d2e86b847da005a6b4ede1135606fa79f2aa0d08bd0652a377e2713c75b50"
+    },
+    {
+      "repository_path": "dataset/new_train.csv",
+      "sha256": "c09b6b7862ea259031a478399adecaeeeae82a8d878baee5a4a77ee59fcecdaf"
+    },
+    {
+      "repository_path": "dataset/new_validation.csv",
+      "sha256": "d53e83e80132a236084a433a25a455a7b94fa3c7e7152e2a92139fe7517711e8"
+    },
+    {
+      "repository_path": "dataset/new_test.csv",
+      "sha256": "e5ebdc082d874cc5e9e6550b5d4cf36aae2aa6781c8cc49e5d0845c34a4935fb"
+    },
+    {
+      "repository_path": "dataset/dataset_manifest.csv",
+      "sha256": "6eeddc54fcdec8c5b59abc5a0e86cea1a15066478d4f51f61776740d7f53d1af"
+    },
+    {
+      "repository_path": "dataset/patient_level_split_image_assignments.csv",
+      "sha256": "4ddb0f76e9a5f2bb81be1a29a96e4d4d968e1ba277a576d7e20686b0fcabf4ac"
+    }
+  ],
+  "partition_counts": {
+    "train": {
+      "images": 14934,
+      "boxes": 22477,
+      "negative_images": 2734
+    },
+    "validation": {
+      "images": 1660,
+      "boxes": 2502,
+      "negative_images": 304
+    },
+    "internal_test": {
+      "images": 1844,
+      "boxes": 2770,
+      "negative_images": 337
+    }
+  },
+  "training_lists": {
+    "train.txt": "60a508664f75c43afe5d5cf16ff0e1998810245eadcf8071248c4f9f98ab4524",
+    "validation.txt": "5f716397ccf145085e107789afc7946013a81fc5bd50fc38b131a146475da202",
+    "test.txt": "b71760c1ffd1cda682eb9d63c806e47405b5d30bc9097a96125372dd6ce80e76"
+  },
+  "scope": "Metadata/list release; no medical image pixels, checkpoint weights, or raw prediction NPZ files in this supplement."
+}

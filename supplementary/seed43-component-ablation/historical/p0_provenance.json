@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "m3_sha256": "c20481309083b51b68111922c33e68250595cbac2f68018369cb26edf69a2d90",
+  "patient_groups": {
+    "train": 8896,
+    "validation": 990
+  },
+  "train_images": 14934,
+  "development_images": 1660,
+  "patient_overlap": 0,
+  "GT": {
+    "train": {
+      "aggregate_label_sha256": "9eff4ff573872cfd32e8c662768103ee1ed5d37238aac8d9c35119062e76b42a",
+      "absent_labels": 0
+    },
+    "validation": {
+      "aggregate_label_sha256": "8ef21eb8b1369ee32082c98f12d86ee4d212c8684bf7be5cfd348694cbe0c09b",
+      "absent_labels": 0
+    }
+  },
+  "torch": "2.11.0+cu126",
+  "cuda": "12.6",
+  "gpu_uuid": "GPU-bdf1c899-1408-3f77-05c1-4584e658333d",
+  "test_data_read": 0
+}

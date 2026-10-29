@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "seed": 43,
+  "steps_per_arm": 4150,
+  "arms": [
+    "B2",
+    "AXIS",
+    "O_ONLY",
+    "O_ISOTROPIC"
+  ],
+  "source_controls": "B2/AXIS are read-only references to historical H100 runs",
+  "new_training_platform": "HPC5 A100",
+  "complete_factorial": false
+}

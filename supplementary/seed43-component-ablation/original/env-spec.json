@@ -1,0 +1,43 @@
+{
+  "base": "Existing /hpc/zhou228/venvs/nnunet; Python3.10.10 CUDA12.6 wheels",
+  "system_pkgs": [],
+  "pip_phases": [],
+  "versions": {
+    "torch": "2.11.0+cu126",
+    "ultralytics": "8.4.83",
+    "numpy": "2.2.6",
+    "PyYAML": "6.0.3"
+  },
+  "env": {
+    "CUDA_VISIBLE_DEVICES": "GPU-1a00cc71-9942-6ecf-769a-6de22d5946a5",
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "run_commands": [],
+  "weight_dirs": {
+    "M3": {
+      "path": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_V6A2_MapFirst/runs/m3_full_q/final.pt",
+      "source": "Existing verified original checkpoint; no download",
+      "gated": false
+    }
+  },
+  "smoke": {
+    "import_names": [
+      "torch",
+      "ultralytics",
+      "numpy",
+      "yaml"
+    ],
+    "gpu_tests": [
+      {
+        "cmd": "CUDA_VISIBLE_DEVICES=GPU-1a00cc71-9942-6ecf-769a-6de22d5946a5 PYTHONDONTWRITEBYTECODE=1 /hpc/zhou228/venvs/nnunet/bin/python /hpc/zhou228/x-ray/Trials/P2_P6_refiner/AXIS_E2_SEED43_HPC5_20261022/verify_environment.py",
+        "expect": "ENVIRONMENT_DOCUMENT_CHECK_PASS"
+      }
+    ],
+    "cli_checks": [
+      "nvidia-smi"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "historical_B2_AXIS": {
+    "training_gpu": "NVIDIA H100 PCIe",
+    "torch": "2.11.0+cu126",
+    "CUDA": "12.6",
+    "ultralytics": "8.4.83",
+    "validation_batch": 8,
+    "validation_workers": 8,
+    "internal_test_batch": 2,
+    "internal_test_workers": 8,
+    "evaluation_precision": "FP32",
+    "historical_python_cudnn_backend_flags": "not captured in the recovered contemporaneous records; unresolved"
+  },
+  "new_O_ONLY_O_ISOTROPIC": {
+    "training_gpu": "NVIDIA A100 80GB PCIe",
+    "host": "HPC5",
+    "python": "3.10.10",
+    "torch": "2.11.0+cu126",
+    "CUDA": "12.6",
+    "ultralytics": "8.4.83",
+    "numpy": "2.2.6",
+    "PyYAML": "6.0.3",
+    "training_precision": "BF16 AMP; FP32 centre re-decoding"
+  },
+  "all_four_new_evaluations": {
+    "torch": "2.11.0+cu126",
+    "CUDA": "12.6",
+    "cudnn": 91002,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "autocast": "FP32 no BF16/FP16 evaluation; validator quantize32",
+    "device_name": "NVIDIA A100 80GB PCIe"
+  },
+  "common_evaluation": {
+    "batch": 8,
+    "workers": 10,
+    "precision": "FP32",
+    "nominal_imgsz": 1024,
+    "rectangular_stride_aligned_batch_canvas": true,
+    "branch": "native O2O",
+    "scorer": "identity",
+    "first_topk": 300,
+    "second_topk": 300,
+    "strict_score_gt": 0.001,
+    "NMS": false,
+    "GT_matching_coordinate_frame": "letterboxed input canvas"
+  },
+  "confirmed_departures": [
+    "historical H100 evaluation versus new A100 evaluation",
+    "internal-test batch 2/workers 8 versus batch 8/workers 10",
+    "validation workers 8 versus 10; batch remains 8"
+  ],
+  "causal_attribution": "unresolved: batch-dependent rectangular canvas and hardware/kernel arithmetic are plausible mechanisms; no controlled single-factor replay was performed; old traces do not capture canvas/input hashes",
+  "fixed_E50_rule": "epoch_50.pt after 50 epochs, 4150 optimizer steps; no best-epoch/validation/test selection",
+  "historical_sources": {
+    "training": "A0R_O2O_AXIS_FULL50_20260930/p0_provenance.json and runtime_protocol.json",
+    "validation": "A0R_O2O_AXIS_FULL50_20260930/full_eval.py",
+    "internal_test": "AXIS_FIXED_E50_INTERNAL_TEST_20261008/test_protocol.json"
+  }
+}
