@@ -19,6 +19,7 @@ with CPU-only arithmetic verification and no new training or model inference.
 | `CALIBRATION_SAMPLE_LIST.csv` | All 720 calibration images in exact batch/order, original server paths, ordering and augmented-input hashes. Order was reconstructed using the original seed-43 index stream and checked against all four recorded ordering hashes. Image pixels/augmentations were not regenerated during collection. |
 | `CALIBRATION_DERIVED.json` | Analytically scaled norms; these are derived numbers, not new backward passes. |
 | `CHECKPOINTS.json` | Four exact server paths, SHA-256, GPU models, epoch/update counts and initial-state hashes. Checkpoint bytes were rehashed on the server. |
+| `MAIN_CHECKPOINTS.json`, `MAIN_CHECKPOINTS.csv` | Eight formal-experiment identities: A0-R, M3 E18 and all six B2/AXIS checkpoints for seeds 42/43/44. Original relative/absolute paths, SHA-256, selection rules and immutable source-record links. This register is distinct from the four seed-43 comparators in `CHECKPOINTS.json`. |
 | `training/{configuration}/` | Original status and all 4,150 per-update input-hash records for each of the four configurations. |
 | `original/PAIRING_VERIFICATION.json` | Original complete-stream pairing verdict. |
 | `original/AP_VERIFICATION.json` | Original eight-matrix export/native comparison. |

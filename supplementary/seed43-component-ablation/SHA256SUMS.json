@@ -40,6 +40,8 @@
   "lists/test.txt": "b71760c1ffd1cda682eb9d63c806e47405b5d30bc9097a96125372dd6ce80e76",
   "lists/train.txt": "60a508664f75c43afe5d5cf16ff0e1998810245eadcf8071248c4f9f98ab4524",
   "lists/validation.txt": "5f716397ccf145085e107789afc7946013a81fc5bd50fc38b131a146475da202",
+  "MAIN_CHECKPOINTS.csv": "531c1d5c09db88460a1067ce954f014910e845933094350af03dbe4aba37a14d",
+  "MAIN_CHECKPOINTS.json": "7c5d4cc05fbc3ce0bf8e28517e2bef2a380a5d00aa3c34cbca94ab3151077b94",
   "original/adapter.py": "f6cf25081f6529280abf2b4cdc570f2a171a0077b07404f2588645cd7fbd63c1",
   "original/AP_VERIFICATION.json": "50024768c85a1b8c6f39c6a0af97e1249dfa7e9cc5378ad0fb175de53ab5df3d",
   "original/CALIBRATION.json": "13ee5101b33244c8a4b93a786a0c91ecf5c785076fd906dd548ca4a51e234b7f",
@@ -51,7 +53,7 @@
   "original/eval_worker.py": "0b4aebf1e9dea0e7e6f2798079b8d243eb8f5103fe4f7f01ebfe1c0880e5d394",
   "original/PAIRING_VERIFICATION.json": "d73f6487a46957279748af5c80f9daae5110b9e01458810140abf9883b9085ab",
   "original/source_hashes.json": "ab4306c60a46708c5194bdf89b339eae5b7a787c11712f6219af9893f3ccd388",
-  "README.md": "a75b06aa2a430c84b3415fe2bba747562555802b4f3671ae16d1dda126e5b15c",
+  "README.md": "ef3baae26cfa37bf5dc4ed73e39c69699a20e56b92e335f7c35f8482702d71ea",
   "training/AXIS/input_hashes.jsonl": "68284a1b0c81d44c9345cc610e4885fb8a8cf9e184d3a35616687f9e30ea9a6c",
   "training/AXIS/status.json": "df7c42ec70085fa17c4706e729f862ddb387216f5fed181d1537e9e6d9af696e",
   "training/B2/input_hashes.jsonl": "03ef3897275aef0a90e7054681fe49207a9a4d894e58ab36a46e0369aacea94e",
@@ -60,5 +62,5 @@
   "training/O_ISOTROPIC/status.json": "ed1932de8b33ccde7d9f071b6e692d4315a9f150724fe9470b36f96d5462fb2d",
   "training/O_ONLY/input_hashes.jsonl": "bfb34aabdc4a1e3f86615723ab90105af7996a147c58ae95907b6bb6a43464ee",
   "training/O_ONLY/status.json": "2f9ecd0fe7dfec749e28cc00a3a9fa4648a08136225bba5f7f1e4f1139c83f63",
-  "verify.py": "177249364f0d375a4b3fa6be8748978f2b907bcb75f528e61fb0d35cd4782d4b"
+  "verify.py": "61ff06025b2cc9bc2c78dee59a0a5da7644a07b529baa40b7d617eb9cb2ff028"
 }

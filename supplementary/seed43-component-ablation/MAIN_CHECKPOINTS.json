@@ -1,0 +1,326 @@
+{
+  "manifest_id": "SA10-MAIN-CHECKPOINTS-V1-20261030",
+  "scope": "A0-R, M3 E18 and all six formal B2/AXIS E50 checkpoints; distinct from CHECKPOINTS.json for the four seed-43 ablation comparators",
+  "records": [
+    {
+      "id": "A0-R",
+      "role": "single validation-selected reference detector",
+      "seed": 42,
+      "epoch": 32,
+      "selection_rule": "maximum validation mAP50-95; best.pt; selected epoch 32 as recorded in the manuscript",
+      "original_path": "/hpc/zhou228/x-ray/Trials/New_trail_5dataset/runs/yolo26x_5dataset_patient_split/weights/best.pt",
+      "sha256": "4509ee498ed7148d3a7701d6bc260541742be548a18412b0df1e25324227107a",
+      "sources": [
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/A0-R/eval_result.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "6f788f46400cbcf94247b4b9ec6e8066b64a4d6fe1ccda29353e6d1b6cd9b377",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/A0-R/eval_result.json"
+        },
+        {
+          "repository_path": "implementation/axis_full50/runtime_protocol.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "6bed9d6a75c405e4e8e739a5c6ec96f923d71c3e13674cb2f7e4bf21cd421de8",
+          "fields": [
+            "a0_checkpoint"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/implementation/axis_full50/runtime_protocol.json"
+        },
+        {
+          "repository_path": "implementation/axis_full50/protocol.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "921b722eae41a4d7043f754558e348af21294324394b51e4a2e8dae98dd0a1c0",
+          "fields": [
+            "source_identity.a0_checkpoint_expected_sha256"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/implementation/axis_full50/protocol.json"
+        }
+      ],
+      "original_relative_path": "New_trail_5dataset/runs/yolo26x_5dataset_patient_split/weights/best.pt",
+      "relative_path_base": "/hpc/zhou228/x-ray/Trials/",
+      "sha256_basis": "cross-checked original experiment records; no new server rehash in this release"
+    },
+    {
+      "id": "M3 E18",
+      "role": "shared Q-only initialisation for every formal B2/AXIS run",
+      "seed": 42,
+      "epoch": 18,
+      "selection_rule": "Q-only duration 18, median of the three grouped-training inner selections 18/20/18",
+      "original_path": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_V6A2_MapFirst/runs/m3_full_q/final.pt",
+      "sha256": "c20481309083b51b68111922c33e68250595cbac2f68018369cb26edf69a2d90",
+      "sources": [
+        {
+          "repository_path": "implementation/axis_full50/protocol.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "921b722eae41a4d7043f754558e348af21294324394b51e4a2e8dae98dd0a1c0",
+          "fields": [
+            "source_m3_e0.path",
+            "source_m3_e0.expected_sha256"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/implementation/axis_full50/protocol.json"
+        },
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/p0_provenance.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "fc334a8409f51e35be0b1d91164cc6ec167accdec7c2b4738c29fc93baa01fbc",
+          "fields": [
+            "m3_sha256"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/p0_provenance.json"
+        },
+        {
+          "repository_path": "implementation/axis_full50/runtime_protocol.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "6bed9d6a75c405e4e8e739a5c6ec96f923d71c3e13674cb2f7e4bf21cd421de8",
+          "fields": [
+            "E_Q_full",
+            "m3_checkpoint"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/implementation/axis_full50/runtime_protocol.json"
+        }
+      ],
+      "original_relative_path": "P2_P6_refiner/A0R_O2O_V6A2_MapFirst/runs/m3_full_q/final.pt",
+      "relative_path_base": "/hpc/zhou228/x-ray/Trials/",
+      "sha256_basis": "cross-checked original experiment records; no new server rehash in this release"
+    },
+    {
+      "id": "B2 seed 42",
+      "role": "formal three-seed fixed-E50 comparison",
+      "seed": 42,
+      "epoch": 50,
+      "selection_rule": "fixed E50 after 4150 optimizer updates; no best-epoch selection",
+      "original_path": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed42/B2/epoch_50.pt",
+      "sha256": "44c7b83daddd4c56469dc0c15ea664e18973de014302d159e84daecfe2f589df",
+      "sources": [
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed42/B2/status.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "a0b173569ceb3ef00963c5abde9e7a17ff87b1fc7c4625793bcdfc567f11c09c",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256",
+            "source_m3_sha256",
+            "total_optimizer_steps"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed42/B2/status.json"
+        },
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/B2_seed42/eval_result.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "771e2347090b58e8c08e4aae41e647beb14ce61275f314e81543c47e7b102a19",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/B2_seed42/eval_result.json"
+        }
+      ],
+      "public_weight_repository_path": null,
+      "original_relative_path": "P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed42/B2/epoch_50.pt",
+      "relative_path_base": "/hpc/zhou228/x-ray/Trials/",
+      "sha256_basis": "cross-checked original experiment records; no new server rehash in this release"
+    },
+    {
+      "id": "AXIS seed 42",
+      "role": "formal three-seed fixed-E50 comparison",
+      "seed": 42,
+      "epoch": 50,
+      "selection_rule": "fixed E50 after 4150 optimizer updates; no best-epoch selection",
+      "original_path": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed42/AXIS/epoch_50.pt",
+      "sha256": "cab91c3e12404e4a71c36d753e8660353f86a1f9e04e08bef97c155d082d5c39",
+      "sources": [
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed42/AXIS/status.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "14f6ed13940bb6cdb292ff4bab88d65f4630374a14d29ec22e54b94605c42b92",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256",
+            "source_m3_sha256",
+            "total_optimizer_steps"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed42/AXIS/status.json"
+        },
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/AXIS_seed42/eval_result.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "42a6f36d80a4ed0fbbed29904dfdd98616004365b0744377983726b1fa384623",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/AXIS_seed42/eval_result.json"
+        }
+      ],
+      "public_weight_repository_path": "weights/AXIS_seed42_E50.pt",
+      "original_relative_path": "P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed42/AXIS/epoch_50.pt",
+      "relative_path_base": "/hpc/zhou228/x-ray/Trials/",
+      "sha256_basis": "cross-checked original experiment records; no new server rehash in this release; public AXIS weight bytes also rehashed locally"
+    },
+    {
+      "id": "B2 seed 43",
+      "role": "formal three-seed fixed-E50 comparison",
+      "seed": 43,
+      "epoch": 50,
+      "selection_rule": "fixed E50 after 4150 optimizer updates; no best-epoch selection",
+      "original_path": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed43/B2/epoch_50.pt",
+      "sha256": "751043f35834a83d97defe8285557823506368a1f017b5c94ff5808ec53a39b7",
+      "sources": [
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed43/B2/status.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "10cd1518ac4b785f61ed8168265075866f99529203e08017aa5a51fce8fc37b2",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256",
+            "source_m3_sha256",
+            "total_optimizer_steps"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed43/B2/status.json"
+        },
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/B2_seed43/eval_result.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "bcbb5b85fc7d32e2681275e434252d28671abc4eb2dcbc82219390463a654f4e",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/B2_seed43/eval_result.json"
+        }
+      ],
+      "public_weight_repository_path": null,
+      "original_relative_path": "P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed43/B2/epoch_50.pt",
+      "relative_path_base": "/hpc/zhou228/x-ray/Trials/",
+      "sha256_basis": "cross-checked original experiment records; no new server rehash in this release"
+    },
+    {
+      "id": "AXIS seed 43",
+      "role": "formal three-seed fixed-E50 comparison",
+      "seed": 43,
+      "epoch": 50,
+      "selection_rule": "fixed E50 after 4150 optimizer updates; no best-epoch selection",
+      "original_path": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed43/AXIS/epoch_50.pt",
+      "sha256": "fa84ca49eceba47f27a5bbb27a34d586c35cb3f4a4c04e4a22d59f2b071f3443",
+      "sources": [
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed43/AXIS/status.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "df7c42ec70085fa17c4706e729f862ddb387216f5fed181d1537e9e6d9af696e",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256",
+            "source_m3_sha256",
+            "total_optimizer_steps"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed43/AXIS/status.json"
+        },
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/AXIS_seed43/eval_result.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "9aabdce01fc66a85b261084f39b10937dc2991acfda9972b0bcf32f95f2ef3ab",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/AXIS_seed43/eval_result.json"
+        }
+      ],
+      "public_weight_repository_path": "weights/AXIS_seed43_E50.pt",
+      "original_relative_path": "P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed43/AXIS/epoch_50.pt",
+      "relative_path_base": "/hpc/zhou228/x-ray/Trials/",
+      "sha256_basis": "cross-checked original experiment records; no new server rehash in this release; public AXIS weight bytes also rehashed locally"
+    },
+    {
+      "id": "B2 seed 44",
+      "role": "formal three-seed fixed-E50 comparison",
+      "seed": 44,
+      "epoch": 50,
+      "selection_rule": "fixed E50 after 4150 optimizer updates; no best-epoch selection",
+      "original_path": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed44/B2/epoch_50.pt",
+      "sha256": "5cb2c7cbdb045eaed50d548e79fca87bdf84f6fef4e14a9a943e22f50eb4eb39",
+      "sources": [
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed44/B2/status.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "fc2b45870a17dec888ef102eeb3b5c8338fc8a90cffaaed19a3bb11305f93065",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256",
+            "source_m3_sha256",
+            "total_optimizer_steps"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed44/B2/status.json"
+        },
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/B2_seed44/eval_result.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "477a1ba536602a6596f585f4d4c61887311e873f442bb1fd99732ffae3db4fc6",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/B2_seed44/eval_result.json"
+        }
+      ],
+      "public_weight_repository_path": null,
+      "original_relative_path": "P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed44/B2/epoch_50.pt",
+      "relative_path_base": "/hpc/zhou228/x-ray/Trials/",
+      "sha256_basis": "cross-checked original experiment records; no new server rehash in this release"
+    },
+    {
+      "id": "AXIS seed 44",
+      "role": "formal three-seed fixed-E50 comparison",
+      "seed": 44,
+      "epoch": 50,
+      "selection_rule": "fixed E50 after 4150 optimizer updates; no best-epoch selection",
+      "original_path": "/hpc/zhou228/x-ray/Trials/P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed44/AXIS/epoch_50.pt",
+      "sha256": "24da82fd11a359c37deb1f41a04fb76a6a13a6eb83434b335b6565adc85ba18f",
+      "sources": [
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed44/AXIS/status.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "14f13e9b7d289ef6ef1455caac1f3f16375640af51bf1e8e319095ec49246ad2",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256",
+            "source_m3_sha256",
+            "total_optimizer_steps"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/runs/seed44/AXIS/status.json"
+        },
+        {
+          "repository_path": "refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/AXIS_seed44/eval_result.json",
+          "source_commit": "cd60f60b230d2a2c931cd526031ee593fb8e402f",
+          "source_file_sha256": "6a3dd505a77561d0c1b0f724354dede9ccdf0156a3662c726e97ebd91df4b7c9",
+          "fields": [
+            "checkpoint",
+            "checkpoint_sha256"
+          ],
+          "url": "https://github.com/HopperHou/X-ray-thesis/blob/cd60f60b230d2a2c931cd526031ee593fb8e402f/refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/evaluations/AXIS_seed44/eval_result.json"
+        }
+      ],
+      "public_weight_repository_path": "weights/AXIS_seed44_E50.pt",
+      "original_relative_path": "P2_P6_refiner/A0R_O2O_AXIS_FULL50_20260930/runs/seed44/AXIS/epoch_50.pt",
+      "relative_path_base": "/hpc/zhou228/x-ray/Trials/",
+      "sha256_basis": "cross-checked original experiment records; no new server rehash in this release; public AXIS weight bytes also rehashed locally"
+    }
+  ],
+  "verification": {
+    "status": "PASS",
+    "record_count": 8,
+    "formal_E50_runs": 6,
+    "source_records_crosschecked": true,
+    "public_weight_bytes_rehashed": [
+      "weights/AXIS_seed42_E50.pt",
+      "weights/AXIS_seed43_E50.pt",
+      "weights/AXIS_seed44_E50.pt"
+    ],
+    "server_weights_rehashed_this_release": false
+  },
+  "availability": "A record of identity is not a download promise. Only the three AXIS weights have the repository paths explicitly listed; other weights are not distributed by this supplement."
+}

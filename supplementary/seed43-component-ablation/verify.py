@@ -14,6 +14,21 @@ def close(a,b): assert math.isclose(float(a),float(b),rel_tol=0,abs_tol=1e-12),(
 
 for name,digest in j('SHA256SUMS.json').items():
     assert hashlib.sha256((P/name).read_bytes()).hexdigest()==digest,name
+main=j('MAIN_CHECKPOINTS.json')
+assert len(main['records'])==8
+assert {r['id'] for r in main['records']}=={'A0-R','M3 E18'}|{f'{a} seed {s}' for a in ['B2','AXIS'] for s in [42,43,44]}
+for r in main['records']:
+    assert r['original_path']==r['relative_path_base']+r['original_relative_path']
+    assert len(r['sha256'])==64 and set(r['sha256'])<=set('0123456789abcdef')
+    for source in r['sources']:
+        path=P.parents[1]/source['repository_path']
+        assert hashlib.sha256(path.read_bytes()).hexdigest()==source['source_file_sha256']
+    s=json.loads((P.parents[1]/r['sources'][0]['repository_path']).read_text())
+    if r['id']=='M3 E18':
+        s=s['source_m3_e0']
+        assert s['expected_sha256']==r['sha256'] and s['path']==r['original_path']
+    else:
+        assert s['checkpoint_sha256']==r['sha256'] and s['checkpoint']==r['original_path']
 arms=['B2','AXIS','O_ONLY','O_ISOTROPIC']
 streams={arm:[json.loads(x) for x in (P/f'training/{arm}/input_hashes.jsonl').read_text().splitlines()] for arm in arms}
 base=streams['B2']
