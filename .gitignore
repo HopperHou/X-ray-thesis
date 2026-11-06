@@ -42,6 +42,8 @@
 /supplementary/*
 !/supplementary/seed43-component-ablation/
 !/supplementary/seed43-component-ablation/**
+!/supplementary/appendix-reproducibility/
+!/supplementary/appendix-reproducibility/**
 
 **/__pycache__/
 *.py[cod]

@@ -1,0 +1,36 @@
+\section{Dataset Curation and Reference Construction}
+\label{app:data-curation}
+
+\subsection{VinDr-CXR record history and geometry measurements}
+
+Replaying verified same-class enclosing-box consolidation produced 11,339 training-branch boxes, compared with 11,296 in the later source table. Twelve missing image identifiers accounted for 34 boxes, and nine additional two-to-one envelopes accounted for the remaining nine. In consensus data, removing one \textit{Aortic enlargement} box and consolidating two \textit{Cardiomegaly} boxes reduced 1,154 targets to 1,152. The decision rules for those later changes were not recovered. The frozen annotation files preserve the reference actually used in the experiments.
+
+Geometry measurements covered 3,009 verified consolidation groups from 2,212 image identifiers after reader fusion and target selection. Each group's largest-area input box supplied the reference, with CSV row order breaking ties. For output/reference subscripts $o/r$, relative width and height changes were $(w_o-w_r)/w_r$ and $(h_o-h_r)/h_r$. Area and aspect-ratio ratios were $w_oh_o/(w_rh_r)$ and $(w_o/h_o)/(w_r/h_r)$, with aspect ratio defined as width divided by height. Medians and linearly interpolated quartiles described the verified consolidation stage, excluding preceding WBF and later record changes.
+
+\subsection{RSNA--ChestX-Det duplicate confirmation and consolidation}
+
+Decoded-grayscale SHA-256 screened for exact image matches. Perceptual retrieval and full-resolution comparison used 0.5th/99.5th-percentile intensity clipping followed by linear rescaling to 8-bit $[0,255]$. Concatenated $16\times16$ aHash/dHash descriptors supplied 512-bit representations. Each ChestX-Det image's five nearest RSNA neighbours by Hamming distance underwent full-resolution verification. Verification selected the higher pixel-wise Pearson correlation between direct and intensity-inverted grayscale orientations. For $N$ pixels, standardised mean absolute error was
+\[
+\operatorname{zMAE}(I,J)=\frac{1}{N}\sum_{p=1}^{N}\left|\frac{I_p-\mu_I}{\sigma_I}-\frac{J_p-\mu_J}{\sigma_J}\right|.
+\]
+Pairs qualified through exact decoded-array agreement or selected correlation $\geq0.995$ together with zMAE $\leq0.10$. No exact hashes matched. All 123 confirmed one-to-one pairs had correlation $>0.9995$.
+
+Joint records retained the RSNA raster and UUID, source RSNA/ChestX-Det and a mapping to both original identifiers. Their common $1024\times1024$ coordinates required no rescaling. All positive boxes remained without averaging or deduplication. Conflicting negative rows were removed, and paired negatives became one record. The 94 positive/positive, 15 mixed and 14 negative/negative pairs yielded 109 positive and 14 negative records. Removing 29 negative rows reduced annotation rows from 31,153 to 31,124, while image-record consolidation reduced 18,561 records to 18,438.
+
+\subsection{Coordinate validation and raster provenance}
+
+All sources used original dimensions $W/H$ and pixel corners satisfying $0\leq x_{\min}<x_{\max}\leq W$ and $0\leq y_{\min}<y_{\max}\leq H$. Raster dimensions were verified. Missing positive coordinates and out-of-bounds or degenerate boxes failed validation after source corrections. Task-negative records had empty coordinates and empty YOLO label files. Valid boxes became normalised centres and dimensions through
+\[
+\left(\frac{x_{\min}+x_{\max}}{2W},\frac{y_{\min}+y_{\max}}{2H},\frac{x_{\max}-x_{\min}}{W},\frac{y_{\max}-y_{\min}}{H}\right).
+\]
+Existing MS-CXR/VinDr-CXR JPG and RSNA/ChestX-Det/SIIM-ACR PNG rasters were used without re-encoding. The recovered SIIM-ACR conversion applied DICOM slope/intercept, MONOCHROME1 correction and 0.5th--99.5th-percentile linear 8-bit mapping. Collapsed percentiles triggered full-range mapping. Other earlier conversion histories were incomplete.
+
+\subsection{Patient linkage, partitioning and retained repeats}
+
+MS-CXR linkage used MIMIC path subjects. RSNA and confirmed ChestX-Det/SIIM-ACR origins shared a NIH patient namespace, while 13 unresolved SIIM-ACR origins used local DICOM PatientIDs. Origin matching supported linkage without globally consolidating repeated images. Patient identifiers grouped 12,664 records, and the 5,774 VinDr-CXR records without patient identifiers remained singletons.
+
+Seed-42 deterministic greedy multilabel stratification kept groups intact across 14,934 training, 1,660 validation and 1,844 internal-test records. Stratification balanced source, positive/negative status, image-level classes and box counts. The subsequent audit identified 357 retained repeated-image groups, comprising 355 cross-source groups involving SIIM-ACR and two within-source pairs. All remained within partitions, with 288 training, 35 validation and 34 internal-test groups. The audit established no cross-partition repeat among the identified groups, while global image uniqueness and complete patient separation remained unverified.
+
+\subsection{Frozen reference files}
+
+The frozen \path{All_data.csv} records positive boxes and task-negative images with identifiers, source, labels, dimensions and pixel corners. Final annotations are preserved in \path{new_train.csv}, \path{new_validation.csv} and \path{new_test.csv}. Group assignments are stored in \path{patient_level_split_image_assignments.csv}, and \path{dataset_manifest.csv} links image and label files. Recoverable scripts and records are available at \mbox{\href{https://github.com/HopperHou/X-ray-thesis/tree/main/dataset}{Dataset and preprocessing records (GitHub)}}.

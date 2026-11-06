@@ -1,0 +1,96 @@
+{
+  "archive_date": "2026-11-06",
+  "source": "Prism Jichao_review.tex",
+  "source_appendix_sha256": "4434acc8da091cf2d59f080e19c35b3d0b4f0f2b7a08130c62db6903d6e07460",
+  "source_code_evidence_commit": "81d585e01480ccafe99ac60ebf1806db7b84758c",
+  "sections": [
+    {
+      "section": "A.1",
+      "title": "Quality Supervision and Sampling",
+      "label": "app:q-architecture",
+      "files": [
+        "01-quality-supervision.md",
+        "01-quality-supervision.tex"
+      ],
+      "tex_sha256": "ff44d3c1d881d34af49d11bb12e939a6012a14f0262fbb8f658f188feee90089"
+    },
+    {
+      "section": "A.2",
+      "title": "Checkpoints, Environment and Seed-level Results",
+      "label": "app:checkpoint-environment",
+      "files": [
+        "02-training-checkpoints.md",
+        "02-training-checkpoints.tex"
+      ],
+      "tex_sha256": "18179453a466634ce08687aa0e8063ee215800e209c34e1773005e9b91f9f584"
+    },
+    {
+      "section": "A.3",
+      "title": "Paired Inputs, Evaluation and Bootstrap",
+      "label": "app:matched-inputs",
+      "files": [
+        "03-evaluation-bootstrap.md",
+        "03-evaluation-bootstrap.tex"
+      ],
+      "tex_sha256": "5da34e7d8004a802a7451008532fdbf27295c1bd0c33c1a66ef164493ad99cc4"
+    },
+    {
+      "section": "A.4",
+      "title": "Native Regression and Numerical Treatment",
+      "label": "app:native-regression",
+      "files": [
+        "04-native-regression.md",
+        "04-native-regression.tex"
+      ],
+      "tex_sha256": "54f804208544cec15fdd1c6ae48ee93811dc47c2355114646667ffa45fdc18c2"
+    },
+    {
+      "section": "A.5",
+      "title": "Origin of the Fixed Geometric Coefficient",
+      "label": "app:lambda-provenance",
+      "files": [
+        "05-geometric-coefficient.md",
+        "05-geometric-coefficient.tex"
+      ],
+      "tex_sha256": "263909f9fbdaa7b435114c337fd9bfc9c1b2515391c40e34a94d8f32766d702b"
+    },
+    {
+      "section": "A.6",
+      "title": "Exploratory Ablation and Evaluation Provenance",
+      "label": "Ablation",
+      "files": [
+        "06-exploratory-ablation.md",
+        "06-exploratory-ablation.tex"
+      ],
+      "tex_sha256": "4d73b222f69b0418b542ff7516417b4bf25f2d06d83276ec20c72e9436c82ad3"
+    },
+    {
+      "section": "A.7",
+      "title": "Dataset Curation and Reference Construction",
+      "label": "app:data-curation",
+      "files": [
+        "07-data-curation.md",
+        "07-data-curation.tex"
+      ],
+      "tex_sha256": "8eec22565f992ea1ef94b63db03a8109e88b5413065d53847f4e19e98bfed395"
+    }
+  ],
+  "sha256": {
+    "01-quality-supervision.md": "6ee40c0e3f853f4c40e083c52019d40d6ab3572012bbed9e16ee13b4227666eb",
+    "01-quality-supervision.tex": "ff44d3c1d881d34af49d11bb12e939a6012a14f0262fbb8f658f188feee90089",
+    "02-training-checkpoints.md": "0d460eb382ed55eeea9091cbe883ffe74218f34a4a961de54d228092a50d1471",
+    "02-training-checkpoints.tex": "18179453a466634ce08687aa0e8063ee215800e209c34e1773005e9b91f9f584",
+    "03-evaluation-bootstrap.md": "91c1e8fd8e7e36406120fb9f8d31bf1295fcb781183c7ba0e68eec3f57490bf6",
+    "03-evaluation-bootstrap.tex": "5da34e7d8004a802a7451008532fdbf27295c1bd0c33c1a66ef164493ad99cc4",
+    "04-native-regression.md": "c18e1c5916e3066f3ac0b69441174c2dd0467c8111c07a6a7afca0266c1f0959",
+    "04-native-regression.tex": "54f804208544cec15fdd1c6ae48ee93811dc47c2355114646667ffa45fdc18c2",
+    "05-geometric-coefficient.md": "e2148406dcc76b34039400fde62545fabc186c4efb5410d808bbfd4f78ef8a8a",
+    "05-geometric-coefficient.tex": "263909f9fbdaa7b435114c337fd9bfc9c1b2515391c40e34a94d8f32766d702b",
+    "06-exploratory-ablation.md": "87f2797f1c689c98dec3c7d933a49c7a4ed487329e675cff08645d67bd7a36a6",
+    "06-exploratory-ablation.tex": "4d73b222f69b0418b542ff7516417b4bf25f2d06d83276ec20c72e9436c82ad3",
+    "07-data-curation.md": "ae389a6bdcc0176e11c375e5627c6efd7098c60ff27e1a8822840c0654704379",
+    "07-data-curation.tex": "8eec22565f992ea1ef94b63db03a8109e88b5413065d53847f4e19e98bfed395",
+    "README.md": "fc028406eb41f4c5818a9eb786088657f23671f0ee82416755752b3551f60057",
+    "verify.py": "40bffa6610d3a71fdfad7ea07ae105076809e1d98cc1600c87609c9481dd2f64"
+  }
+}

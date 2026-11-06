@@ -8,6 +8,7 @@ Source code and official experiment records for the current thesis model: **AXIS
 - `refine-logs/AXIS_FULL50_20260930/RESULTS_SNAPSHOT_20261001_1839/`: official E50 reports, per-class results, convergence CSV, evaluation matrices, and pairing and freeze checks.
 - `dataset/`: frozen annotation and partition CSV files, original preparation scripts, provenance records and SHA256 checksums. See the [dataset reproduction guide](dataset/README.md). Raw images, DICOM files, YOLO label text files, and dataset image archives are excluded.
 - `weights/`: trained model checkpoints, stored separately from dataset files and handled with Git LFS.
+- `supplementary/appendix-reproducibility/`: versioned technical appendix archive, with readable methods, exact LaTeX excerpts and checksums for the shortened thesis appendix.
 
 The repository includes the original AXIS E50 checkpoints for seeds 42, 43, and 44, plus the final `dataset/All_data.csv`. All four files were downloaded from hpc6 and verified against the SHA256 values in the original experiment records. File checksums are listed in [SHA256SUMS](SHA256SUMS).
 

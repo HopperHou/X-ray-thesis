@@ -1,0 +1,85 @@
+\section{Checkpoints, Environment and Seed-level Results}
+\label{app:checkpoint-environment}
+
+Rasters loaded as three channels or from cache, underwent longer-side resizing to 1024, and were affinely mapped to $1024\times1024$. Uncovered pixels were set to 114 before photometric augmentation. Boxes followed resizing, affine transformation, flipping and clipping; floating intensities were divided by 255 before network input. Seed 42 was prespecified as representative, with all-epoch losses retained.
+
+
+
+Historical runs used PyTorch 2.11.0+cu126, CUDA 12.6 and Ultralytics 8.4.83, with 30/40/eight loader workers for M3/E50/evaluation. Tables~\ref{tab:validation-main} and~\ref{tab:app-per-seed-results} report aggregate and per-seed historical results.
+
+Table~\ref{tab:training-stages} brings together detector adaptation, Q-only preparation and matched fine-tuning. A0-R was selected by validation mAP50--95, M3 duration by inner grouped-training Q loss, and final comparisons used fixed E50 checkpoints.
+
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.17\linewidth}*{3}{>{\raggedright\arraybackslash}X}@{}}
+\toprule
+\textbf{Setting} & \textbf{A0-R adaptation} & \textbf{Q-only M3} & \textbf{B2 and AXIS fine-tuning} \\
+\midrule
+Initial state & COCO-pretrained \path{yolo26x.pt}; six-class adaptation & A0-R; Q outputs zero-initialised as in Appendix~\ref{app:q-architecture} & M3 E18, freshly loaded for every run \\
+Trainable components & All detector parameters & Q heads only; A0-R frozen & O2O regression tower and Q heads \\
+Training objective & Native end-to-end loss; no Q or AXIS & Q loss only & B2: native regression + Q; AXIS: B2 + geometric objective \\
+Training records / input & 14,934 / 1024 $\times$ 1024 & 14,934 / 1024 $\times$ 1024 & 14,934 / 1024 $\times$ 1024 \\
+Random seeds & 42 & 42 & 42, 43 and 44 \\
+Duration / selected state & 50 epochs; best validation mAP50--95 at E32 & 18 epochs; median inner selections [18, 20, 18] & Fixed E50; intermediate E10/20/30/40 retained \\
+Batch size & Global 20 across two GPUs & 60 & Nominal 180; final minibatch 174 \\
+Optimiser & Automatic selection gave MuSGD & AdamW; weight decay 5 $\times$ $10^{-4}$ & AdamW; weight decay 5 $\times$ $10^{-4}$ \\
+Learning rates & 0.01; momentum 0.9 & Q $10^{-4}$ & Regression $10^{-5}$; Q $10^{-4}$ \\
+Batch-normalisation updates & Native all-parameter training & Detector frozen & Regression tower only \\
+Run-specific controls & Mixed precision; patience 20 not triggered; mosaic off for final 10 epochs & Duration chosen by inner grouped-training Q loss & BF16 autocast; constant learning rates; no warm-up/scheduler; 83 updates/epoch, 4,150/run \\
+\bottomrule
+\end{tabularx}
+\caption{Training-stage configurations for the shared initialisation and matched B2--AXIS comparison. B2 and AXIS shared the final-stage settings and differed by the AXIS geometric addition. Historical software versions and loader settings are given in the surrounding appendix text.}
+\label{tab:training-stages}\label{tab:section32-2}
+\end{table}
+
+\path{MAIN_CHECKPOINTS.json} and its CSV register identify A0-R, M3 E18 and the six formal B2/AXIS checkpoints by source paths, SHA-256 and selection rule. \path{CHECKPOINTS.json} separately registers the four seed-43 ablation comparators.
+
+\begin{quote}\small\mbox{\href{https://github.com/HopperHou/X-ray-thesis/blob/81d585e01480ccafe99ac60ebf1806db7b84758c/supplementary/seed43-component-ablation/MAIN_CHECKPOINTS.json}{Main checkpoint identities (GitHub)}}\end{quote}
+
+
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{lrr}
+\toprule
+Model & mAP50--95 (\%) & mAP50 (\%) \\
+\midrule
+A0-R & 27.3557 & 53.2865 \\
+B2 & \(27.5679\pm0.0158\) & \(53.3451\pm0.0353\) \\
+AXIS & \(27.5679\pm0.0192\) & \(53.3462\pm0.0341\) \\
+\bottomrule
+\end{tabular}
+\caption{Historical validation results in percent. B2 and AXIS values are three-seed mean $\pm$ sample SD from fixed E50 checkpoints; A0-R represents a single validation-selected reference checkpoint.}
+\label{tab:validation-main}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{lllrr}
+\toprule
+Partition & Model & Seed & mAP50--95 (\%) & mAP50 (\%) \\
+\midrule
+Validation & B2 & 42 & 27.561786 & 53.354758 \\
+Validation & AXIS & 42 & 27.551901 & 53.357673 \\
+Validation & B2 & 43 & 27.585844 & 53.306074 \\
+Validation & AXIS & 43 & 27.589171 & 53.307777 \\
+Validation & B2 & 44 & 27.556051 & 53.374605 \\
+Validation & AXIS & 44 & 27.562526 & 53.373047 \\
+Internal test & B2 & 42 & 27.803301 & 53.040851 \\
+Internal test & AXIS & 42 & 27.787443 & 53.042044 \\
+Internal test & B2 & 43 & 27.795363 & 53.053842 \\
+Internal test & AXIS & 43 & 27.807620 & 53.071685 \\
+Internal test & B2 & 44 & 27.760350 & 53.071716 \\
+Internal test & AXIS & 44 & 27.778860 & 53.191161 \\
+\bottomrule
+\end{tabular}
+\caption{Per-seed fixed E50 results. Percentages are displayed to six decimal places; comparisons used unrounded values.}
+\label{tab:app-per-seed-results}
+\end{table}
+
+\FloatBarrier

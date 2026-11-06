@@ -1,0 +1,18 @@
+\section{Paired Inputs, Evaluation and Bootstrap}
+\label{app:matched-inputs}
+
+Inference selected 300 locations ranked by maximum original class probability, then the top 300 location--class combinations, with strict score $>0.001$. Images were resized to longer side 1024 and rectangularly letterboxed to stride-aligned batch canvases, padded longer side 1056, with shorter side set by batch aspect ratios. Validation used batch eight for A0-R and all six fine-tuned models; internal testing used batch two.
+
+
+
+Task-negative sampling ranked UTF-8 \path{seed|split|source|image_id} by ascending SHA-256 without replacement, using seed \path{simplified-dataset-no-finding-v1}. Literal split keys were \path{train}/\path{test}, and source keys were \path{RSNA}, \path{SIIM-ACR} and \path{VinDR-CXR}. The resulting selections belonged to the preprocessing partitions, which preceded the final analysis grouping.
+
+Within each seed, B2/AXIS input hashes agreed across all 4,150 updates, including ordered images, analysis groups, eligibility, augmented tensors, labels, boxes and actual batch sizes. Initial regression and Q states also matched, establishing paired inputs and initialisation throughout the comparison. Foreground assignments could subsequently differ as predictions evolved, and input agreement did not imply identical cross-hardware floating-point optimisation.
+
+Evaluation used Ultralytics 8.4.83 BaseValidator.match\_predictions with use\_scipy=False. Matching masked IoU by class, applied each threshold, then used IoU ordering and successive prediction/GT deduplication. Separately, ap\_per\_class accumulated confidence-ranked TP/FP. compute\_ap used a precision envelope, sentinel endpoints, 101 recall nodes and trapezoidal integration. Retained annotations were evaluated without Q-eligibility masking.
+
+Validation uncertainty used 10,000 paired group-bootstrap replicates with PCG64 seed 20260930. The 990 sorted analysis groups shared draws across all seven models. Each sampled group contributed all its images, with repeated groups contributing repeated records. AP was recomputed for every replicate as a six-class, ten-threshold matrix, using zero rows for absent reference classes.
+
+Before resampling, exported records covered exactly 1,660 validation images; GT arrays and offsets matched across models. Full-record AP matched official matrices with zero relative tolerance and absolute tolerance \(10^{-12}\). Same-seed differences were averaged across three seeds before taking percentile limits at 2.5\% and 97.5\%. Neither trained models nor seeds were resampled. These intervals condition on fitted models and exposed validation data; no internal-test bootstrap was performed.
+
+\FloatBarrier

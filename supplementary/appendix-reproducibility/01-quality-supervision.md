@@ -1,0 +1,54 @@
+# Quality Supervision and Sampling
+
+The auxiliary quality branch predicts class-specific localisation quality at each detection location, with continuous targets defined below. Each scale used a separately parameterised Q head (Table A.1), without normalisation layers. Its final convolution was zero-initialised before M3 training, and detached inputs and targets restricted Q-loss updates to the quality heads.
+
+| **Component** | **Transformation** |
+| --- | --- |
+| Classification-feature projection | 384 input channels; $1\times1$ convolution to 64 channels; SiLU |
+| Regression-feature projection | 96 input channels; $1\times1$ convolution to 64 channels; SiLU |
+| Raw-distance projection | Four input channels; $1\times1$ convolution to 16 channels; SiLU |
+| Feature fusion | Concatenate 144 channels; $3\times3$ convolution to 128 channels; SiLU |
+| Quality output | $1\times1$ convolution to six quality logits |
+
+Shared auxiliary quality-head architecture at each detection scale.
+
+Q eligibility followed Table 3.1; P cells without eligible locations supplied no supervision.
+
+For image n, location j and class c, the detached target was the maximum quality over retained same-class GT boxes g. With u denoting clipped IoU, predicted and reference centres $\hat{\boldsymbol c}$ and c, and reference dimensions w and h,
+
+$$
+\begin{gathered}
+q^*_{njc}=
+\begin{cases}
+\displaystyle
+\operatorname{clip}_{[0,1]}\left\{
+\max_{g\in\mathcal G_{nc}}
+\left[
+(2^{u_{njg}}-1)
+\exp\left(
+-\frac{\|\hat{\boldsymbol c}_{nj}-\boldsymbol c_g\|_2^2}
+{\max(w_g^2+h_g^2,\varepsilon)}
+\right)
+\right]\right\},&\mathcal G_{nc}\ne\varnothing,\\[4pt]
+0,&\mathcal G_{nc}=\varnothing,
+\end{cases}\\[3pt]
+\varepsilon=10^{-12}.
+\end{gathered}
+$$
+
+IoU used non-negative areas and a union floor of $\varepsilon$. This diagonal-relative quality target differs from the AXIS centre term.
+
+Ordinary locations with maximum same-class IoU below 0.5 were sampled from intervals [0, 0.05), [0.05, 0.20), [0.20, 0.40), [0.40, 0.70) and [0.70, 1]. Each image–class–interval contributed at most 32 locations. The lowest interval prioritised original scores; other intervals used CPU permutations seeded by 42 + e for each image at epoch e, independently of the run seed.
+
+For each GT box, eligible good locations were traversed through three lists: up to 11 by quality, up to 11 by original logits, then cyclically shifted native indices. Rankings were stable; the shift was 42 + e modulo the good-location count. First occurrences filled a quota of 32 unique locations, after which native positives were added by union.
+
+Each non-empty ordinary interval contributed unit total weight; each GT selection added unit total weight. Contributions accumulated for shared locations. For accumulated weights $\omega$, quality logits z and actual batch size B, weighted BCE with continuous targets gave
+
+$$
+\mathcal L_Q=
+\frac{1}{B}\sum_{n=1}^{B}
+\frac{
+\sum_{j,c}\omega_{njc}\,
+\ell_{\mathrm{BCE}}(z^Q_{njc},q^*_{njc})
+}{\max\left(\sum_{j,c}\omega_{njc},1\right)},
+$$
